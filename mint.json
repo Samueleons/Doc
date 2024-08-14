@@ -1,0 +1,133 @@
+{
+  "$schema": "C:/Users/Samuel/Desktop/Documentation/mintlify/Doc 14-8/api-reference/openapi.json",
+  "name": "NLPearl Documentation",
+  "logo": {
+    "dark": "/logo/logo_favicon.png",
+    "light": "/logo/logo_favicon.png"
+  },
+  "favicon": "/logo/logo_favicon.png",
+  "colors": {
+    "primary": "#5C57F4",
+    "light": "#F7F7F7",
+    "dark": "#5C57F4",
+    "anchors": {
+      "from": "#FAADFF",
+      "to": "#5C57F4"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@nlpearl.ai"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Platform",
+    "url": "https://platform.nlpearl.ai/"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "WebSite",
+      "icon": "globe",
+      "url": "https://nlpearl.ai/"
+    },
+    {
+      "name": "API References",
+      "icon": "terminal",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "",
+      "pages": [
+        "pages/introduction"
+      ]
+    },
+    {
+      "group": "General",
+      "pages": [
+        "pages/overview",
+        "pages/getting_started"
+      ]
+    },
+    {
+      "group": "Pearl",
+      "pages": [
+        "pages/create_pearl",
+        "pages/custom_pearl",
+        "pages/languages",
+        "pages/action",
+        "pages/calls"
+      ]
+    },
+    {
+      "group": "Activities",
+      "pages": [
+        "pages/inbound",
+        "pages/outbound",
+        "pages/outbound_api"
+      ]
+    },
+    {
+      "group": "More Features",
+      "pages": [
+        "pages/agents",
+        "pages/phone_numbers",
+        "pages/phone_number_reg",
+        "pages/billing"
+      ]
+    },
+    {
+      "group": "",
+      "pages": [
+        "api-reference/api_quickstart"
+      ]
+    },
+    {
+    "group": "Client",
+    "pages": [
+      "api-reference/client/get-client"
+    ]
+  },
+  {
+    "group": "Inbound",
+    "pages": [
+      "api-reference/inbound/get-inbounds",
+      "api-reference/inbound/get-specific-inbound",
+      "api-reference/inbound/set-active-state-for-inbound",
+      "api-reference/inbound/get-inbounds-call-history",
+      "api-reference/inbound/get-calls-by-dates-for-inbound"
+    ]
+  },
+  {
+    "group": "Outbound",
+    "pages": [
+      "api-reference/outbound/get-outbounds",
+      "api-reference/outbound/get-a-specific-outbound",
+      "api-reference/outbound/set-active-state-for-a-outbound",
+      "api-reference/outbound/get-outbound-call-history",
+      "api-reference/outbound/get-calls-by-dates-for-a-outbound",
+      "api-reference/outbound/add-a-lead-to-an-outbound",
+      "api-reference/outbound/get-outbound-leads",
+      "api-reference/outbound/get-specific-outbound-lead-and-calls",
+      "api-reference/outbound/request-an-outbound-phone-call-via-api",
+      "api-reference/outbound/retrieve-an-api-call-request",
+      "api-reference/outbound/retrieve-outbound-api-call-requests"
+    ]
+  }
+
+  ],
+  "footerSocials": {
+    "x": "https://x.com/NLPearlai",
+    "linkedin": "https://www.linkedin.com/company/nlpearl/mycompany/",
+    "youtube": "https://www.youtube.com/@NLPearl",
+    "instagram": "https://www.instagram.com/nlpearl/"
+  }
+}
