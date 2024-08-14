@@ -1,0 +1,67 @@
+---
+title: Quick Start
+description: 'Get started with the NLPearl.AI API by following these simple steps to set up your subscription, API secret key, and authentication.'
+---
+
+import { CardGroup, Card } from '/snippets';
+
+## Quick Start with NLPearl.AI API
+
+Getting started with the NLPearl.AI API is straightforward. Follow these steps to set up your subscription, create an API secret key, and authenticate your API requests.
+
+
+### Step 1: Choose a Subscription
+
+Before you can use the NLPearl.AI API, you need to select a subscription plan that suits your needs. Visit the [Subscription Plans](#) page to view and choose the plan that best fits your requirements.
+
+### Step 2: Create an API Secret Key
+
+To interact with the NLPearl.AI API, you need to create an API secret key. This key is essential for authenticating your requests.
+
+1. **Navigate to the API Page**: Go to the settings tab on the platform and select the API page.
+2. **Create API Secret Key**: Follow the instructions to generate a new API secret key. Make sure to store this key securely.
+
+### Step 3: Find Your Account ID
+
+Your Account ID is required for API authentication. You can find your Account ID in the account details section of the settings tab.
+
+1. **Navigate to Settings**: Go to the settings tab on the platform.
+2. **Find Account ID**: Locate your Account ID in the account details section.
+
+### Step 4: Set Up API Authentication
+
+To authenticate your API requests, you need to include your Account ID and API secret key in the header of each request. Use the following format for the bearer authentication header:
+
+Authorization: Bearer AccountId
+
+### Example API Request
+
+Here’s an example of how to set up the authentication header for an API request using cURL:
+
+```
+curl -X GET "https://api.nlpearl.ai/v1/endpoint" \
+     -H "Authorization: Bearer YourAccountId:YourSecretKey"
+```
+Ensure that you replace YourAccountId and YourSecretKey with your actual Account ID and API secret key.
+
+You're All Set!
+With your subscription selected, API secret key created, and Account ID found, you are ready to start using the NLPearl.AI API. Explore the API documentation to learn more about the available endpoints and how to integrate NLPearl.AI into your applications.
+
+<CardGroup cols={2}>
+  <Card
+    title="API Reference"
+    icon="code"
+    href="/docs/api-reference"
+  >
+    Dive into the details of using the NLPearl.AI API.
+  </Card>
+  <Card
+    title="Authentication Guide"
+    icon="key"
+    href="/docs/api-authentication"
+  >
+    Learn more about setting up and managing API authentication.
+  </Card>
+</CardGroup>
+Conclusion
+Starting with the NLPearl.AI API is easy and straightforward. By following these steps, you can quickly set up your account and begin integrating powerful AI capabilities into your applications.

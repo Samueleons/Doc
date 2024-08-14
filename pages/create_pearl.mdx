@@ -1,0 +1,82 @@
+---
+title: Create Your Pearl
+description: 'Learn how to create and customize your Pearl for personalized conversational flows in NLPearl.AI.'
+---
+
+import { CardGroup, Card } from '/snippets';
+
+## Overview of a Pearl
+
+Creating a Pearl in NLPearl.AI involves setting up a customized conversational flow that defines the behavior of your AI agents during interactions. This process allows you to tailor how your AI engages with customers, ensuring that conversations are both natural and effective.
+
+### What is a Pearl?
+
+A Pearl in NLPearl.AI represents the core structure of your conversational AI's interaction logic. It includes all necessary components to make the conversation as human-like as possible.
+
+### Step-by-Step Guide to Creating a Pearl
+
+#### Step 1: Select Use Case
+
+Choose the type of use case for your Pearl:
+
+1. **Personal Secretary**: The secretary provides information, schedules appointments, and performs other tasks in real-time or post-call, just like a real secretary, but without making coffee. Unlike other use cases, she has no script or flow, she is a genuine secretary.
+2. **Sales**: The sales agent can act in real-time or post-call with a predefined behavior focused on selling a product persistently. Give them a script, and they'll handle the rest.
+3. **Support**: Similar to the salesperson, the support agent is trained to provide assistance. Their behavior is more supportive and helpful.
+4. **Custom**: Also known as advanced mode, this option lets you create a decision tree and develop complex flows. You can add any action or API request at any point during the conversation. The agent will know what to do and when to do it, from start to finish, including what to say and under which conditions.
+
+#### Step 2: Agent Customization
+
+1. **Name of the Agent**: Define the name of the agent, which will be used during phone conversations.
+2. **Voice & Language**: Select a voice from a list of available options. Each voice supports one language and one accent, indicated by tags (e.g., "us-AU" for English with an Australian accent). The conversation will be conducted in the language of the chosen voice.
+3. **Personality**: Set the personality traits of the agent to match the desired interaction style.
+4. **Timezone**: Define the timezone of the agent. This influences time-related actions, such as booking meetings.
+
+#### Step 3: Agent Knowledge Base
+
+1. **Company Name**: Enter the name of the company the agent represents during conversations.
+2. **Company Description**: Provide a brief description of the company, including sector and basic information.
+3. **Pearl Knowledge Base**: Provide detailed information about your services, pricing, location, operational data, and website. This can be entered as free text or by uploading a file.
+
+#### Step 4: Flow Configuration
+
+1. **Opening Sentence**: Define the first sentence Pearl will say when answering the phone. You can include variables like "company name" or "agent name." Avoid using lead-specific variables for inbound calls.
+2. **Flow Script**: For use cases other than Personal Secretary, provide the script that Pearl will follow during conversations, similar to a script given to a human salesperson.
+3. **In Call Actions**: Specify actions that Pearl can perform during the call, such as booking meetings or transferring calls.
+4. **Post Call Actions**: Define actions that Pearl will perform after the call, such as sending follow-up emails or taking messages.
+
+For more details on actions, refer to the [Actions](actions) page.
+
+#### Step 5: Pearl Name
+
+1. **Name of the Pearl**: Assign a friendly name to your Pearl for easy retrieval.
+2. **Choose Your Pearl**: Select a logo for your Pearl from a list of available options.
+3. **Define the Success of Your Pearl**: Specify what constitutes a successful call for your Pearl, such as booking a meeting, obtaining client interest, or qualifying a lead.
+
+<CardGroup cols={2}>
+  <Card
+    title="Languages & Voices"
+    icon="globe"
+    href="/pages/languages"
+  >
+    Explore the different languages available and how to set them for your Pearl.
+  </Card>
+  <Card
+    title="Custom Pearl"
+    icon="screwdriver-wrench"
+    href="/pages/custom_pearl"
+  >
+    Learn about the custom options and decision tree for advanced configuration.
+  </Card>
+</CardGroup>
+
+## Best Practices for Pearl Creation
+
+When creating your Pearl, consider the following best practices to ensure optimal performance and customer satisfaction:
+
+- **Use Variables Wisely**: Add the first name and last name variables into the opening sentence only for outbound calls when you are sure that the lead list contains this information.
+- **Cultural Alignment**: Ensure the chosen language and conversational style align with the cultural expectations of your audience.
+- **Feedback Incorporation**: Continuously refine your Pearl based on feedback and interaction outcomes to improve conversational effectiveness.
+
+## Summary
+
+Creating a Pearl is integral to deploying effective AI-driven interactions in NLPearl.AI. By carefully configuring each component of your Pearl, you ensure that your AI agents deliver not only consistent and personalized customer service but also drive meaningful engagements that can enhance overall business performance.
