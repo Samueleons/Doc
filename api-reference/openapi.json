@@ -788,6 +788,7 @@
           {
             "name": "outboundId",
             "in": "path",
+            "description": "The outbound's unique identifier where the lead will be added.",
             "required": true,
             "schema": {
               "type": "string"
@@ -795,6 +796,7 @@
           }
         ],
         "requestBody": {
+          "description": "The lead information to be added to the outbound.",
           "content": {
             "application/json": {
               "schema": {
@@ -1021,7 +1023,7 @@
           {
             "name": "outboundId",
             "in": "path",
-            "description": "The outbound's unique identifier.",
+            "description": "The unique identifier of the outbound campaign for which the call is being initiated.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1029,6 +1031,7 @@
           }
         ],
         "requestBody": {
+          "description": "The details required to make the outbound phone call, encapsulated in an NLPearl.Core.Models.OutboundMakeCallRequest object.",
           "content": {
             "application/json": {
               "schema": {
@@ -1102,6 +1105,7 @@
           {
             "name": "requestId",
             "in": "path",
+            "description": "The unique identifier of the API request to retrieve.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1163,6 +1167,7 @@
           {
             "name": "outboundId",
             "in": "path",
+            "description": "The unique identifier of the outbound campaign for which the API call requests are being retrieved.",
             "required": true,
             "schema": {
               "type": "string"
@@ -1170,6 +1175,7 @@
           }
         ],
         "requestBody": {
+          "description": "The search criteria, including filters or pagination options, provided in the request body.",
           "content": {
             "application/json": {
               "schema": {
@@ -1253,6 +1259,7 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "The unique identifier of the API request.",
             "nullable": true
           },
           "status": {
@@ -1260,10 +1267,12 @@
           },
           "outboundId": {
             "type": "string",
+            "description": "The unique identifier of the outbound campaign associated with this API request.",
             "nullable": true
           },
           "created": {
             "type": "string",
+            "description": "The date and time when the API request was created.",
             "format": "date-time"
           },
           "errors": {
@@ -1271,6 +1280,7 @@
             "items": {
               "type": "string"
             },
+            "description": "A list of errors that occurred during the API request, if any.",
             "nullable": true
           },
           "call": {
@@ -1284,6 +1294,7 @@
         "properties": {
           "count": {
             "type": "integer",
+            "description": "The total number of items matching the search criteria.",
             "format": "int64"
           },
           "results": {
@@ -1291,6 +1302,7 @@
             "items": {
               "$ref": "#/components/schemas/ApiRequestView"
             },
+            "description": "The list of results for the current page, based on the search criteria.",
             "nullable": true
           }
         },
@@ -1493,6 +1505,7 @@
         "properties": {
           "count": {
             "type": "integer",
+            "description": "The total number of items matching the search criteria.",
             "format": "int64"
           },
           "results": {
@@ -1500,6 +1513,7 @@
             "items": {
               "$ref": "#/components/schemas/CallTypeHistory"
             },
+            "description": "The list of results for the current page, based on the search criteria.",
             "nullable": true
           }
         },
@@ -1560,6 +1574,7 @@
           },
           "avatarId": {
             "type": "string",
+            "description": "The Id of the avatar used in the outbound.",
             "nullable": true
           },
           "budgetTotal": {
@@ -1643,39 +1658,48 @@
         "properties": {
           "accountId": {
             "type": "string",
+            "description": "The unique identifier for the client's account.",
             "nullable": true
           },
           "name": {
             "type": "string",
+            "description": "The name of the client.",
             "nullable": true
           },
           "totalAgents": {
             "type": "integer",
+            "description": "The total number of agents allocated to the client.",
             "format": "int32"
           },
           "billingEmail": {
             "type": "string",
+            "description": "The email address used for billing purposes.",
             "nullable": true
           },
           "notificationEmail": {
             "type": "string",
+            "description": "The email address used for sending notifications to the client.",
             "nullable": true
           },
           "billingTierId": {
             "type": "string",
+            "description": "The identifier for the current billing tier of the client.",
             "nullable": true
           },
           "upcomingBillingTierId": {
             "type": "string",
+            "description": "The identifier for the upcoming billing tier if a change has been scheduled.",
             "nullable": true
           },
           "lastSubscriptionRenewalDate": {
             "type": "string",
+            "description": "The date of the last subscription renewal.",
             "format": "date-time",
             "nullable": true
           },
           "creditBalance": {
             "type": "number",
+            "description": "The current credit balance of the client.",
             "format": "double"
           },
           "status": {
@@ -1683,11 +1707,13 @@
           },
           "registrationDate": {
             "type": "string",
+            "description": "The date when the client registered.",
             "format": "date-time",
             "nullable": true
           },
           "remainingMinutes": {
             "type": "number",
+            "description": "The remaining minutes available for the client.",
             "format": "double"
           }
         },
@@ -1763,6 +1789,7 @@
           },
           "avatarId": {
             "type": "string",
+            "description": "The Id of the avatar used in the inbound.",
             "nullable": true
           },
           "totalAgents": {
@@ -1992,6 +2019,7 @@
         "properties": {
           "count": {
             "type": "integer",
+            "description": "The total number of items matching the search criteria.",
             "format": "int64"
           },
           "results": {
@@ -1999,6 +2027,7 @@
             "items": {
               "$ref": "#/components/schemas/LeadView"
             },
+            "description": "The list of results for the current page, based on the search criteria.",
             "nullable": true
           }
         },
