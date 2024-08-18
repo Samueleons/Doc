@@ -1,5 +1,5 @@
 {
-  "$schema": "C:/Users/Samuel/Desktop/Documentation/mintlify/Doc 14-8/api-reference/openapi.json",
+  "$schema": "C:/Users/Samuel/Desktop/Documentation/mintlify/starter-main/api-reference/openapi.json",
   "name": "NLPearl Documentation",
   "logo": {
     "dark": "/logo/logo_favicon.png",
@@ -91,32 +91,34 @@
       ]
     },
     {
-    "group": "Client",
+    "group": "Account",
     "pages": [
-      "api-reference/client/get-client"
+      "api-reference/account/get-client"
+    ]
+  },
+  {
+    "group": "CallInformation",
+    "pages": [
+      "api-reference/callinformation/get-call-informations"
     ]
   },
   {
     "group": "Inbound",
     "pages": [
       "api-reference/inbound/get-inbounds",
-      "api-reference/inbound/get-specific-inbound",
-      "api-reference/inbound/set-active-state-for-inbound",
-      "api-reference/inbound/get-inbounds-call-history",
-      "api-reference/inbound/get-calls-by-dates-for-inbound"
+      "api-reference/inbound/get-inbound",
+      "api-reference/inbound/set-activity-state",
+      "api-reference/inbound/get-calls"
     ]
   },
   {
     "group": "Outbound",
     "pages": [
       "api-reference/outbound/get-outbounds",
-      "api-reference/outbound/get-a-specific-outbound",
-      "api-reference/outbound/set-active-state-for-a-outbound",
-      "api-reference/outbound/get-outbound-call-history",
-      "api-reference/outbound/get-calls-by-dates-for-a-outbound",
-      "api-reference/outbound/add-a-lead-to-an-outbound",
-      "api-reference/outbound/get-outbound-leads",
-      "api-reference/outbound/get-specific-outbound-lead-and-calls",
+      "api-reference/outbound/get-outbound",
+      "api-reference/outbound/set-activity-state",
+      "api-reference/outbound/get-calls",
+      "api-reference/outbound/get-leads",
       "api-reference/outbound/request-an-outbound-phone-call-via-api",
       "api-reference/outbound/retrieve-an-api-call-request",
       "api-reference/outbound/retrieve-outbound-api-call-requests"
