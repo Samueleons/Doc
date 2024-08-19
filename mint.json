@@ -33,14 +33,9 @@
   ],
   "anchors": [
     {
-      "name": "WebSite",
+      "name": "Platform",
       "icon": "globe",
-      "url": "https://nlpearl.ai/"
-    },
-    {
-      "name": "API References",
-      "icon": "terminal",
-      "url": "api-reference"
+      "url": "https://platform.nlpearl.ai/"
     }
   ],
   "navigation": [
@@ -87,19 +82,20 @@
     {
       "group": "",
       "pages": [
-        "api-reference/api_quickstart"
+        "api-reference/api_quickstart",
+        "api-reference/authorisation"
       ]
     },
     {
     "group": "Account",
     "pages": [
-      "api-reference/account/get-client"
+      "api-reference/account/get-account"
     ]
   },
   {
-    "group": "CallInformation",
+    "group": "Call",
     "pages": [
-      "api-reference/callinformation/get-call-informations"
+      "api-reference/call/get-call"
     ]
   },
   {
@@ -118,10 +114,13 @@
       "api-reference/outbound/get-outbound",
       "api-reference/outbound/set-activity-state",
       "api-reference/outbound/get-calls",
-      "api-reference/outbound/get-leads",
-      "api-reference/outbound/request-an-outbound-phone-call-via-api",
-      "api-reference/outbound/retrieve-an-api-call-request",
-      "api-reference/outbound/retrieve-outbound-api-call-requests"
+      "api-reference/outbound/add-a-lead-to-an-outbound",
+      "api-reference/outbound/search-leads",
+      "api-reference/outbound/get-specific-outbound-lead",
+      "api-reference/outbound/get-specific-outbound-lead-1",
+      "api-reference/outbound/make-phone-call",
+      "api-reference/outbound/get-phone-call-request",
+      "api-reference/outbound/get-phone-call-requests"
     ]
   }
 

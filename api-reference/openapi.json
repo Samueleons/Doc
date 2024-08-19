@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://NlpearlApi.com",
+      "url": "https://api.nlpearl.ai",
       "description": "Production Environement"
     }
   ],
@@ -17,8 +17,8 @@
         "tags": [
           "Account"
         ],
-        "summary": "Get Account Informations",
-        "description": "Retrieves client informations",
+        "summary": "Get Account",
+        "description": "Retrieves Account informations",
         "responses": {
           "200": {
             "description": "Client informations",
@@ -63,12 +63,12 @@
         }
       }
     },
-    "/v1/CallInformation/{CallId}": {
+    "/v1/Call/{CallId}": {
       "get": {
         "tags": [
-          "CallInformation"
+          "Call"
         ],
-        "summary": "Get Call Informations",
+        "summary": "Get Call",
         "description": "Retrieves all the informations about a call",
         "parameters": [
           {
@@ -334,7 +334,7 @@
         "tags": [
           "Inbound"
         ],
-        "summary": "Get Calls",
+        "summary": "Search Calls",
         "description": "Retrieves the calls within a specific date range of inbound",
         "parameters": [
           {
@@ -544,7 +544,7 @@
           {
             "name": "outboundId",
             "in": "path",
-            "description": "The unique identifier of the outbound.\\n\\nRetreive it in [Get outbound](api-reference/outbound/get-outbounds)",
+            "description": "The unique identifier of the outbound.\n\nRetreive it in [Get outbound](api-reference/outbound/get-outbounds)",
             "required": true,
             "schema": {
               "type": "string"
@@ -620,7 +620,7 @@
         "tags": [
           "Outbound"
         ],
-        "summary": "Get Calls",
+        "summary": "Search Calls",
         "description": "Retrieves the calls within a specific date range for a given outbound",
         "parameters": [
           {
@@ -697,12 +697,94 @@
         }
       }
     },
+    "/v1/Outbound/{outboundId}/Lead": {
+      "put": {
+        "tags": [
+          "Outbound"
+        ],
+        "summary": "Add Lead",
+        "description": "Adds a new lead to a specified outbound",
+        "parameters": [
+          {
+            "name": "outboundId",
+            "in": "path",
+            "description": "The unique identifier of the outbound campaign to which the lead will be added.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The lead details to be added to the outbound campaign.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadToAddApi"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadToAddApi"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadToAddApi"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Id of the added lead.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadToAddResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadToAddResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadToAddResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/Outbound/{outboundId}/Leads": {
       "post": {
         "tags": [
           "Outbound"
         ],
-        "summary": "Get Leads",
+        "summary": "Search Leads",
         "description": "Retrieves the leads associated with a specific outbound",
         "parameters": [
           {
@@ -779,12 +861,154 @@
         }
       }
     },
+    "/v1/Outbound/{outboundId}/Lead/{leadId}": {
+      "get": {
+        "tags": [
+          "Outbound"
+        ],
+        "summary": "Get Lead",
+        "description": "Retrieves details of a specific lead within a outbound",
+        "parameters": [
+          {
+            "name": "outboundId",
+            "in": "path",
+            "description": "The unique identifier of the outbound campaign.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "leadId",
+            "in": "path",
+            "description": "The unique identifier of the lead within the outbound campaign.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of the specific lead.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadView"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadView"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Outbound/{outboundId}/Lead/Extrenal/{externalId}": {
+      "get": {
+        "tags": [
+          "Outbound"
+        ],
+        "summary": "Get Lead Via External ID",
+        "description": "Retrieves details of a specific lead within a outbound",
+        "parameters": [
+          {
+            "name": "outboundId",
+            "in": "path",
+            "description": "The unique identifier of the outbound campaign.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalId",
+            "in": "path",
+            "description": "The external identifier of the lead within the outbound campaign.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Details of the specific lead.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadView"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadView"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeadView"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/Outbound/{outboundId}/Call": {
       "post": {
         "tags": [
           "Outbound"
         ],
-        "summary": "Make Phone Call",
+        "summary": "Make Call",
         "description": "Initiates an outbound phone call associated with the specified outbound ID. The request body must contain the necessary details for making the call. Once initiated, the call will be routed to the first available agent.",
         "parameters": [
           {
@@ -866,7 +1090,7 @@
         "tags": [
           "Outbound"
         ],
-        "summary": "Get Phone Call Request",
+        "summary": "Get Call Request",
         "description": "Fetches detailed information about a specific API request identified by its unique requestId.",
         "parameters": [
           {
@@ -928,7 +1152,7 @@
         "tags": [
           "Outbound"
         ],
-        "summary": "Get Phone Call Requests",
+        "summary": "Search Call Requests",
         "description": "Fetches a list of API call requests associated with a specific outbound identifier. The search criteria, such as filters or pagination options, should be provided in the request body.",
         "parameters": [
           {
@@ -1050,8 +1274,10 @@
             "description": "A list of errors that occurred during the API request, if any.",
             "nullable": true
           },
-          "call": {
-            "$ref": "#/components/schemas/CallHistoryView"
+          "callId": {
+            "type": "string",
+            "description": "The unique identifier of the call associated with this API request, if available.",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1075,24 +1301,6 @@
         },
         "additionalProperties": false
       },
-      "CalendarEventView": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "startDateTime": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "endDateTime": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
       "CallApiView": {
         "type": "object",
         "properties": {
@@ -1101,16 +1309,17 @@
             "description": "The unique identifier of the call.",
             "nullable": true
           },
-          "processStartTime": {
+          "startTime": {
             "type": "string",
             "description": "The date and time when the call processing started.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "conversationStatus": {
-            "$ref": "#/components/schemas/eLeadStatus"
+            "$ref": "#/components/schemas/eConversationStatusView"
           },
           "status": {
-            "$ref": "#/components/schemas/eCallStatus"
+            "$ref": "#/components/schemas/eCallStatusView"
           },
           "from": {
             "type": "string",
@@ -1162,106 +1371,6 @@
         },
         "additionalProperties": false
       },
-      "CallCollectedDataView": {
-        "type": "object",
-        "properties": {
-          "transcript": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AgentChatMessageView"
-            },
-            "nullable": true
-          },
-          "collectedInfo": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CollectedInfoView"
-            },
-            "nullable": true
-          },
-          "isSuccess": {
-            "type": "boolean"
-          },
-          "calendarBookedEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CalendarEventView"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CallHistoryView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier for the call history entry, represented as an ObjectId.",
-            "nullable": true
-          },
-          "relatedId": {
-            "type": "string",
-            "description": "The identifier linking this call to a related entity or event.",
-            "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/eCallStatus"
-          },
-          "callType": {
-            "$ref": "#/components/schemas/eCallType"
-          },
-          "processStartTime": {
-            "type": "string",
-            "description": "The start time of the call processing.",
-            "format": "date-time"
-          },
-          "processEndTime": {
-            "type": "string",
-            "description": "The end time of the call processing.",
-            "format": "date-time"
-          },
-          "to": {
-            "type": "string",
-            "description": "The destination phone number of the call.",
-            "nullable": true
-          },
-          "from": {
-            "type": "string",
-            "description": "The originating phone number of the call.",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the person or entity associated with the call.",
-            "nullable": true
-          },
-          "summary": {
-            "type": "string",
-            "description": "A summary of the call, providing key information or outcomes.",
-            "nullable": true
-          },
-          "duration": {
-            "type": "integer",
-            "description": "The total duration of the call process, in seconds.",
-            "format": "int32"
-          },
-          "recording": {
-            "type": "string",
-            "description": "A link or identifier for accessing the recording of the call.",
-            "nullable": true
-          },
-          "collectedData": {
-            "$ref": "#/components/schemas/CallCollectedDataView"
-          },
-          "leadId": {
-            "type": "string",
-            "description": "The identifier of the lead associated with this call, if applicable.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CallListApiView": {
         "type": "object",
         "properties": {
@@ -1270,16 +1379,17 @@
             "description": "The unique identifier of the call.",
             "nullable": true
           },
-          "processStartTime": {
+          "startTime": {
             "type": "string",
             "description": "The date and time when the call processing started.",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "conversationStatus": {
-            "$ref": "#/components/schemas/eLeadStatus"
+            "$ref": "#/components/schemas/eConversationStatusView"
           },
           "status": {
-            "$ref": "#/components/schemas/eCallStatus"
+            "$ref": "#/components/schemas/eCallStatusView"
           },
           "from": {
             "type": "string",
@@ -1289,11 +1399,6 @@
           "to": {
             "type": "string",
             "description": "The phone number to which the call was made.",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name associated with the call, if available.",
             "nullable": true
           },
           "duration": {
@@ -1352,20 +1457,6 @@
         },
         "additionalProperties": false
       },
-      "CollectedInfoView": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "InboundApiView": {
         "type": "object",
         "properties": {
@@ -1379,6 +1470,9 @@
             "description": "The name of the inbound activity.",
             "nullable": true
           },
+          "status": {
+            "$ref": "#/components/schemas/eActivityStatus"
+          },
           "pearlName": {
             "type": "string",
             "description": "The name of the Pearl associated with this inbound activity.",
@@ -1388,14 +1482,6 @@
             "type": "integer",
             "description": "The total number of agents allocated to this inbound activity.",
             "format": "int32"
-          },
-          "activityStatus": {
-            "$ref": "#/components/schemas/eActivityStatus"
-          },
-          "created": {
-            "type": "string",
-            "description": "The date and time when the inbound activity was created.",
-            "format": "date-time"
           },
           "phoneNumber": {
             "type": "string",
@@ -1417,10 +1503,10 @@
             "description": "The total number of calls currently in the queue.",
             "format": "int32"
           },
-          "totalCalls": {
-            "type": "integer",
-            "description": "The total number of calls handled by this inbound activity.",
-            "format": "int32"
+          "created": {
+            "type": "string",
+            "description": "The date and time when the inbound activity was created.",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -1443,7 +1529,7 @@
             "description": "The total number of agents allocated to this inbound.",
             "format": "int32"
           },
-          "activityStatus": {
+          "status": {
             "$ref": "#/components/schemas/eActivityStatus"
           },
           "created": {
@@ -1477,11 +1563,54 @@
             "description": "Whether the sort order is ascending."
           },
           "status": {
-            "$ref": "#/components/schemas/eLeadStatus"
+            "$ref": "#/components/schemas/eLeadStatusInputView"
           }
         },
         "additionalProperties": false,
         "description": "Extends TableSearch to include specific search criteria for leads."
+      },
+      "LeadToAddApi": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "The first name of the lead.",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "The last name of the lead.",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "The email address of the lead.",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "The phone number of the lead.",
+            "nullable": true
+          },
+          "externalId": {
+            "type": "string",
+            "description": "An optional external identifier for the lead.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeadToAddResponse": {
+        "type": "object",
+        "properties": {
+          "leadId": {
+            "type": "string",
+            "description": "The unique identifier of the lead that was added.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the response returned after adding a lead."
       },
       "LeadView": {
         "type": "object",
@@ -1495,9 +1624,6 @@
             "type": "string",
             "description": "The identifier for the lead from an external system, such as a CRM.",
             "nullable": true
-          },
-          "externalSource": {
-            "$ref": "#/components/schemas/eLeadExternalSource"
           },
           "firstName": {
             "type": "string",
@@ -1519,27 +1645,18 @@
             "description": "The phone number of the lead.",
             "nullable": true
           },
-          "timeZoneId": {
+          "timeZone": {
             "type": "string",
-            "description": "The identifier for the lead's time zone (e.g., 'America/New_York').",
+            "description": "The time zone of the lead, represented as a float (e.g., -5.0 for EST).",
             "nullable": true
           },
           "status": {
-            "$ref": "#/components/schemas/eLeadStatus"
+            "$ref": "#/components/schemas/eLeadStatusView"
           },
           "created": {
             "type": "string",
             "description": "The date and time when the lead was created.",
             "format": "date-time"
-          },
-          "statusLastModified": {
-            "type": "string",
-            "description": "The last time the status of the lead was modified.",
-            "format": "date-time"
-          },
-          "originalSourceData": {
-            "description": "Raw data from the original source of the lead, which might include serialized details from systems like Salesforce.",
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1581,13 +1698,29 @@
             "description": "The total number of agents allocated to this outbound activity.",
             "format": "int32"
           },
-          "activityStatus": {
+          "status": {
             "$ref": "#/components/schemas/eActivityStatus"
           },
           "created": {
             "type": "string",
             "description": "The date and time when the outbound activity was created.",
             "format": "date-time"
+          },
+          "budgetTotal": {
+            "type": "number",
+            "description": "The total budget allocated for this outbound activity.",
+            "format": "double",
+            "nullable": true
+          },
+          "budgetConsumed": {
+            "type": "number",
+            "description": "The amount of the budget that has been consumed so far.",
+            "format": "double"
+          },
+          "totalLeads": {
+            "type": "integer",
+            "description": "The total number of leads associated with this outbound activity.",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1608,11 +1741,6 @@
           "totalLeads": {
             "type": "integer",
             "description": "The total number of leads associated with this outbound activity.",
-            "format": "int32"
-          },
-          "totalCalls": {
-            "type": "integer",
-            "description": "The total number of calls made during this outbound activity.",
             "format": "int32"
           },
           "totalLeadsCompleted": {
@@ -1651,7 +1779,7 @@
             "description": "The total number of agents allocated to this outbound activity.",
             "format": "int32"
           },
-          "activityStatus": {
+          "status": {
             "$ref": "#/components/schemas/eActivityStatus"
           },
           "created": {
@@ -1663,9 +1791,6 @@
             "type": "integer",
             "description": "The total number of calls made today during this outbound activity.",
             "format": "int32"
-          },
-          "countryCode": {
-            "$ref": "#/components/schemas/eCountryCode"
           }
         },
         "additionalProperties": false
@@ -1683,7 +1808,7 @@
             "additionalProperties": {
               "type": "string"
             },
-            "description": "A dictionary containing additional information about the lead.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\nThis parameter is optional.",
+            "description": "A dictionary containing additional information about the lead.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\n\n\nThis parameter is optional.\r\n\n\nHere is an exemple of the json to send:\n\n\r\n`{ \"firstname\" : \"joe\", \"lastName\": \"Martin\" }`",
             "nullable": true
           }
         },
@@ -1710,7 +1835,7 @@
           },
           "queuePosition": {
             "type": "integer",
-            "description": "The position of the call in the queue if the call is placed in a waiting queue.\r\nA value of 0 indicates that the call is being handled immediately.",
+            "description": "The position of the call in the queue if the call is placed in a waiting queue.",
             "format": "int64"
           }
         },
@@ -1750,12 +1875,12 @@
             "type": "boolean",
             "description": "Whether the sort order is ascending."
           },
-          "from": {
+          "fromDate": {
             "type": "string",
             "description": "The start date for filtering the search results.",
             "format": "date-time"
           },
-          "to": {
+          "toDate": {
             "type": "string",
             "description": "The end date for filtering the search results.",
             "format": "date-time"
@@ -1834,11 +1959,8 @@
         "description": "Represents the authorization status for making calls.\n\n`1 - FullAccess`\n\n`2 - LimitedAccess`\n\n`3 - NoCredits`\n\n`4 - SuspendedAccount`\n\n",
         "format": "int32"
       },
-      "eCallStatus": {
+      "eCallStatusView": {
         "enum": [
-          1,
-          2,
-          3,
           4,
           5,
           6,
@@ -1846,18 +1968,7 @@
           8
         ],
         "type": "integer",
-        "description": "\n\n`1 - Queued`\n\n`2 - Ringing`\n\n`3 - InProgress`\n\n`4 - Completed`\n\n`5 - Busy`\n\n`6 - Failed`\n\n`7 - NoAnswer`\n\n`8 - Canceled`\n\n",
-        "format": "int32"
-      },
-      "eCallType": {
-        "enum": [
-          1,
-          3,
-          5,
-          99
-        ],
-        "type": "integer",
-        "description": "\n\n`1 - Outbound`\n\n`3 - Inbound`\n\n`5 - ConversationFlow`\n\n`99 - PhoneSim`\n\n",
+        "description": "\n\n`4 - Completed`\n\n`5 - Busy`\n\n`6 - Failed`\n\n`7 - NoAnswer`\n\n`8 - Canceled`\n\n",
         "format": "int32"
       },
       "eChatMessageRoleView": {
@@ -1869,52 +1980,51 @@
         "description": "\n\n`2 - Pearl`\n\n`3 - Client`\n\n",
         "format": "int32"
       },
-      "eCountryCode": {
+      "eConversationStatusView": {
         "enum": [
-          1,
-          2,
-          33,
-          44,
-          61,
-          972
-        ],
-        "type": "integer",
-        "description": "\n\n`1 - UnitedStates`\n\n`2 - Canada`\n\n`33 - France`\n\n`44 - UnitedKingdom`\n\n`61 - Australia`\n\n`972 - Israel`\n\n",
-        "format": "int32"
-      },
-      "eLeadExternalSource": {
-        "enum": [
-          1,
-          10
-        ],
-        "type": "integer",
-        "description": "\n\n`1 - API`\n\n`10 - SalesForce`\n\n",
-        "format": "int32"
-      },
-      "eLeadStatus": {
-        "enum": [
-          1,
           10,
-          20,
-          40,
-          50,
-          60,
           100,
           110,
-          120,
-          125,
           130,
           200
         ],
         "type": "integer",
-        "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`20 - InCallQueue`\n\n`40 - OnCall`\n\n`50 - WaitingForPostProcess`\n\n`60 - NeedFollowUp`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`120 - WrongNumber`\n\n`125 - Uncomplete`\n\n`130 - Complete`\n\n`200 - Deleted`\n\n",
+        "description": "\n\n`10 - NeedRetry`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Error`\n\n",
+        "format": "int32"
+      },
+      "eLeadStatusInputView": {
+        "enum": [
+          1,
+          10,
+          40,
+          100,
+          110,
+          130,
+          200
+        ],
+        "type": "integer",
+        "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Deleted`\n\n",
+        "format": "int32"
+      },
+      "eLeadStatusView": {
+        "enum": [
+          1,
+          10,
+          40,
+          100,
+          110,
+          130,
+          500
+        ],
+        "type": "integer",
+        "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
         "format": "int32"
       }
     },
     "securitySchemes": {
       "bearer_auth": {
         "type": "http",
-        "description": "Specify the authorization token.\n\nThe _**Token**_ must be of this form `AccountId:SecretKey`.\n\n **for exemple**:\n\n `Bearer 66552698d60e456235eae520:tWPqr5EEZv2dxqutv58NsCg7NuqGc1tX` \n\n you can retreive your Account Id and Secret Key in [our platfrorm](https://platform.nlpearl.ai/app/settings/api)",
+        "description": "Specify the authorization token.\n\nFor more information, check out the [Authorization Guide](/authorization).",
         "scheme": "bearer"
       }
     }
