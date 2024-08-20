@@ -823,17 +823,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/LeadViewTableSearchResult"
+                  "$ref": "#/components/schemas/LeadListViewTableSearchResult"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LeadViewTableSearchResult"
+                  "$ref": "#/components/schemas/LeadListViewTableSearchResult"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LeadViewTableSearchResult"
+                  "$ref": "#/components/schemas/LeadListViewTableSearchResult"
                 }
               }
             }
@@ -1540,6 +1540,66 @@
         },
         "additionalProperties": false
       },
+      "LeadListView": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/eLeadStatusView"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LeadListViewTableSearchResult": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "The total number of items matching the search criteria.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LeadListView"
+            },
+            "description": "The list of results for the current page, based on the search criteria.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "LeadSearch": {
         "type": "object",
         "properties": {
@@ -1657,24 +1717,13 @@
             "type": "string",
             "description": "The date and time when the lead was created.",
             "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LeadViewTableSearchResult": {
-        "type": "object",
-        "properties": {
-          "count": {
-            "type": "integer",
-            "description": "The total number of items matching the search criteria.",
-            "format": "int64"
           },
-          "results": {
+          "callsId": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/LeadView"
+              "type": "string"
             },
-            "description": "The list of results for the current page, based on the search criteria.",
+            "description": "The list of the ID's of all the calls this lead has received.",
             "nullable": true
           }
         },
@@ -1927,95 +1976,41 @@
         "additionalProperties": { }
       },
       "eActivityStatus": {
-        "enum": [
-          1,
-          2,
-          3,
-          10
-        ],
         "type": "integer",
         "description": "Here is the activity status\n\n`1 - Running`\n\n`2 - Paused`\n\n`3 - Suspended`\n\n`10 - TemporaryMaintenance`\n\n",
         "format": "int32"
       },
       "eApiRequestStatus": {
-        "enum": [
-          1,
-          2,
-          10,
-          100
-        ],
         "type": "integer",
         "description": "\n\n`1 - InCallQueue`\n\n`2 - OnCall`\n\n`10 - Completed`\n\n`100 - Error`\n\n",
         "format": "int32"
       },
       "eCallAuthorizationStatus": {
-        "enum": [
-          1,
-          2,
-          3,
-          4
-        ],
         "type": "integer",
         "description": "Represents the authorization status for making calls.\n\n`1 - FullAccess`\n\n`2 - LimitedAccess`\n\n`3 - NoCredits`\n\n`4 - SuspendedAccount`\n\n",
         "format": "int32"
       },
       "eCallStatusView": {
-        "enum": [
-          4,
-          5,
-          6,
-          7,
-          8
-        ],
         "type": "integer",
         "description": "\n\n`4 - Completed`\n\n`5 - Busy`\n\n`6 - Failed`\n\n`7 - NoAnswer`\n\n`8 - Canceled`\n\n",
         "format": "int32"
       },
       "eChatMessageRoleView": {
-        "enum": [
-          2,
-          3
-        ],
         "type": "integer",
         "description": "\n\n`2 - Pearl`\n\n`3 - Client`\n\n",
         "format": "int32"
       },
       "eConversationStatusView": {
-        "enum": [
-          10,
-          100,
-          110,
-          130,
-          200
-        ],
         "type": "integer",
         "description": "\n\n`10 - NeedRetry`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Error`\n\n",
         "format": "int32"
       },
       "eLeadStatusInputView": {
-        "enum": [
-          1,
-          10,
-          40,
-          100,
-          110,
-          130,
-          200
-        ],
         "type": "integer",
         "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Deleted`\n\n",
         "format": "int32"
       },
       "eLeadStatusView": {
-        "enum": [
-          1,
-          10,
-          40,
-          100,
-          110,
-          130,
-          500
-        ],
         "type": "integer",
         "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
         "format": "int32"
