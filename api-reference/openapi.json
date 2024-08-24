@@ -2019,7 +2019,7 @@
     "securitySchemes": {
       "bearer_auth": {
         "type": "http",
-        "description": "Specify the authorization token.\n\nFor more information, check out the [Authorization Guide](/authorization).",
+        "description": "Specify the authorization token.\n\nFor more information, check out the [Authorization Guide](/api-reference/authorization).",
         "scheme": "bearer"
       }
     }
