@@ -71,7 +71,7 @@
       ]
     },
     {
-      "group": "More Features",
+      "group": "Settings",
       "pages": [
         "pages/agents",
         "pages/phone_numbers",
@@ -85,44 +85,7 @@
         "api-reference/api_quickstart",
         "api-reference/authorisation"
       ]
-    },
-    {
-    "group": "Account",
-    "pages": [
-      "api-reference/account/get-account"
-    ]
-  },
-  {
-    "group": "Call",
-    "pages": [
-      "api-reference/call/get-call"
-    ]
-  },
-  {
-    "group": "Inbound",
-    "pages": [
-      "api-reference/inbound/get-inbounds",
-      "api-reference/inbound/get-inbound",
-      "api-reference/inbound/set-activity-state",
-      "api-reference/inbound/get-calls"
-    ]
-  },
-  {
-    "group": "Outbound",
-    "pages": [
-      "api-reference/outbound/get-outbounds",
-      "api-reference/outbound/get-outbound",
-      "api-reference/outbound/set-activity-state",
-      "api-reference/outbound/get-calls",
-      "api-reference/outbound/add-a-lead-to-an-outbound",
-      "api-reference/outbound/search-leads",
-      "api-reference/outbound/get-specific-outbound-lead",
-      "api-reference/outbound/get-specific-outbound-lead-1",
-      "api-reference/outbound/make-phone-call",
-      "api-reference/outbound/get-phone-call-request",
-      "api-reference/outbound/get-phone-call-requests"
-    ]
-  }
+    }
 
   ],
   "footerSocials": {
