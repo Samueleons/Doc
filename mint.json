@@ -2,8 +2,8 @@
   "$schema": "C:/Users/Samuel/Desktop/Documentation/mintlify/starter-main/api-reference/openapi.json",
   "name": "NLPearl Documentation",
   "logo": {
-    "dark": "/logo/logo_favicon.png",
-    "light": "/logo/logo_favicon.png"
+    "dark": "/logo/logoWhite.png",
+    "light": "/logo/logoBlack.png"
   },
   "favicon": "/logo/logo_favicon.png",
   "colors": {
