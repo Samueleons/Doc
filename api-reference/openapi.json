@@ -1,2032 +1,2050 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "title": "NLPearl Client API",
-    "description": "A sample API that demonstrates features in the OpenAPI specification",
-    "version": "v1"
-  },
-  "servers": [
-    {
-      "url": "https://api.nlpearl.ai",
-      "description": "Production Environement"
-    }
-  ],
-  "paths": {
-    "/v1/Account": {
-      "get": {
-        "tags": [
-          "Account"
-        ],
-        "summary": "Get Account",
-        "description": "Retrieves Account informations",
-        "responses": {
-          "200": {
-            "description": "Client informations",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientApiView"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientApiView"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientApiView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
+    "openapi": "3.0.1",
+    "info": {
+        "title": "NLPearl Client API",
+        "description": "A sample API that demonstrates features in the OpenAPI specification",
+        "version": "v1"
     },
-    "/v1/Call/{CallId}": {
-      "get": {
-        "tags": [
-          "Call"
-        ],
-        "summary": "Get Call",
-        "description": "Retrieves all the informations about a call",
-        "parameters": [
-          {
-            "name": "callId",
-            "in": "path",
-            "description": "The unique identifier of the call to retrieve information for.",
-            "required": true,
-            "schema": {
-              "type": "string"
+    "paths": {
+        "/v1/Account": {
+            "get": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Get Account",
+                "description": "Retrieves Account informations",
+                "responses": {
+                    "200": {
+                        "description": "Client informations",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ClientApiView"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ClientApiView"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ClientApiView"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Client informations",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallApiView"
+        },
+        "/v1/Call/{CallId}": {
+            "get": {
+                "tags": [
+                    "Call"
+                ],
+                "summary": "Get Call",
+                "description": "Retrieves all the informations about a call",
+                "parameters": [
+                    {
+                        "name": "callId",
+                        "in": "path",
+                        "description": "The unique identifier of the call to retrieve information for.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Client informations",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallApiView"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallApiView"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallApiView"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
                 }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallApiView"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallApiView"
-                }
-              }
             }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+        },
+        "/v1/Inbound": {
+            "get": {
+                "tags": [
+                    "Inbound"
+                ],
+                "summary": "Get Inbounds",
+                "description": "Retrieves all inbounds",
+                "responses": {
+                    "200": {
+                        "description": "List of all inbound for the client.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/InboundListApiView"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/InboundListApiView"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/InboundListApiView"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
                 }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
             }
-          }
+        },
+        "/v1/Inbound/{InboundId}": {
+            "get": {
+                "tags": [
+                    "Inbound"
+                ],
+                "summary": "Get Inbound",
+                "description": "Retrieves a specific inbound by its ID",
+                "parameters": [
+                    {
+                        "name": "InboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the inbound.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Details of the specific inbound.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InboundApiView"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InboundApiView"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/InboundApiView"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Inbound/{inboundId}/Active": {
+            "post": {
+                "tags": [
+                    "Inbound"
+                ],
+                "summary": "Set Activity State",
+                "description": "Run or Pause a specific inbound",
+                "parameters": [
+                    {
+                        "name": "inboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the inbound.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "The request containing the desired active state.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetActiveRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetActiveRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetActiveRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The active state of the inbound.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/eActivityStatus"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/eActivityStatus"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/eActivityStatus"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Inbound/{inboundId}/Calls": {
+            "post": {
+                "tags": [
+                    "Inbound"
+                ],
+                "summary": "Search Calls",
+                "description": "Retrieves the calls within a specific date range of inbound",
+                "parameters": [
+                    {
+                        "name": "inboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the inbound configuration.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "The search criteria including date range and sorting parameters.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Calls within the specified date range for inbound.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound": {
+            "get": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Get Outbounds",
+                "description": "Retreive all the Outbounds",
+                "responses": {
+                    "200": {
+                        "description": "A list of outbounds.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OutboundApiListView"
+                                    }
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OutboundApiListView"
+                                    }
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/OutboundApiListView"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}": {
+            "get": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Get Outbound",
+                "description": "Retrieve a specific outbound by its ID",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the outbound.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Detailed view of a specific outbound.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OutboundApiView"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OutboundApiView"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OutboundApiView"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}/Active": {
+            "post": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Set Activity State",
+                "description": "Activates or deactivates a specified outbound",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the outbound.\n\nRetreive it in [Get outbound](api-reference/outbound/get-outbounds)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "The request containing the activation state.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetActiveRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetActiveRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SetActiveRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The active state of the outbound.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/eActivityStatus"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/eActivityStatus"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/eActivityStatus"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}/Calls": {
+            "post": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Search Calls",
+                "description": "Retrieves the calls within a specific date range for a given outbound",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The outbound's unique identifier.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "The search criteria including date range and sorting parameters.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Calls within the specified date range for the outbound.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}/Lead": {
+            "put": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Add Lead",
+                "description": "Adds a new lead to a specified outbound",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the outbound campaign to which the lead will be added.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "The lead details to be added to the outbound campaign.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LeadToAddApi"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LeadToAddApi"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LeadToAddApi"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Id of the added lead.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadToAddResponse"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadToAddResponse"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadToAddResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}/Leads": {
+            "post": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Search Leads",
+                "description": "Retrieves the leads associated with a specific outbound",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the outbound.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Search criteria for the leads.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LeadSearch"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LeadSearch"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LeadSearch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "List of leads for the outbound.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadListViewTableSearchResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadListViewTableSearchResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadListViewTableSearchResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}/Lead/{leadId}": {
+            "get": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Get Lead",
+                "description": "Retrieves details of a specific lead within a outbound",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the outbound campaign.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "leadId",
+                        "in": "path",
+                        "description": "The unique identifier of the lead within the outbound campaign.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Details of the specific lead.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadView"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadView"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadView"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}/Lead/Extrenal/{externalId}": {
+            "get": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Get Lead Via External ID",
+                "description": "Retrieves details of a specific lead within a outbound",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the outbound campaign.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "externalId",
+                        "in": "path",
+                        "description": "The external identifier of the lead within the outbound campaign.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Details of the specific lead.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadView"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadView"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LeadView"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}/Call": {
+            "post": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Make Call",
+                "description": "Initiates an outbound phone call associated with the specified outbound ID. The request body must contain the necessary details for making the call. Once initiated, the call will be routed to the first available agent.",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the outbound campaign for which the call is being initiated.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "The details required to make the outbound phone call, encapsulated in an NLPearl.Core.Models.OutboundMakeCallRequest object.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OutboundMakeCallRequest"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OutboundMakeCallRequest"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OutboundMakeCallRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "The outbound phone call was successfully initiated and the active state is returned.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OutboundMakeCallResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OutboundMakeCallResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OutboundMakeCallResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "The request was invalid. Possible causes include a missing or malformed outbound ID, or errors in the call request details.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/CallRequest/{requestId}": {
+            "get": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Get Call Request",
+                "description": "Fetches detailed information about a specific API request identified by its unique requestId.",
+                "parameters": [
+                    {
+                        "name": "requestId",
+                        "in": "path",
+                        "description": "The unique identifier of the API request to retrieve.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The details of the API request were successfully retrieved.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiRequestView"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiRequestView"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiRequestView"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "The request was invalid. Possible causes include a missing or malformed requestId.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/Outbound/{outboundId}/CallRequest": {
+            "post": {
+                "tags": [
+                    "Outbound"
+                ],
+                "summary": "Search Call Requests",
+                "description": "Fetches a list of API call requests associated with a specific outbound identifier. The search criteria, such as filters or pagination options, should be provided in the request body.",
+                "parameters": [
+                    {
+                        "name": "outboundId",
+                        "in": "path",
+                        "description": "The unique identifier of the outbound campaign for which the API call requests are being retrieved.",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "The search criteria, including filters or pagination options, provided in the request body.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TableDateSearch"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "A list of API call requests related to the specified outbound ID was successfully retrieved.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiRequestViewTableSearchResult"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiRequestViewTableSearchResult"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ApiRequestViewTableSearchResult"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "The request was invalid. Possible causes include a missing or malformed outbound ID, or errors in the search parameters.",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            },
+                            "text/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     },
-    "/v1/Inbound": {
-      "get": {
-        "tags": [
-          "Inbound"
-        ],
-        "summary": "Get Inbounds",
-        "description": "Retrieves all inbounds",
-        "responses": {
-          "200": {
-            "description": "List of all inbound for the client.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/InboundListApiView"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/InboundListApiView"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/InboundListApiView"
-                  }
-                }
-              }
+    "components": {
+        "schemas": {
+            "AgentChatMessageView": {
+                "type": "object",
+                "properties": {
+                    "role": {
+                        "$ref": "#/components/schemas/eChatMessageRoleView"
+                    },
+                    "content": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ApiRequestView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the API request.",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eApiRequestStatus"
+                    },
+                    "outboundId": {
+                        "type": "string",
+                        "description": "The unique identifier of the outbound campaign associated with this API request.",
+                        "nullable": true
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "The date and time when the API request was created.",
+                        "format": "date-time"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A list of errors that occurred during the API request, if any.",
+                        "nullable": true
+                    },
+                    "callId": {
+                        "type": "string",
+                        "description": "The unique identifier of the call associated with this API request, if available.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ApiRequestViewTableSearchResult": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "integer",
+                        "description": "The total number of items matching the search criteria.",
+                        "format": "int64"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ApiRequestView"
+                        },
+                        "description": "The list of results for the current page, based on the search criteria.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CallApiView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the call.",
+                        "nullable": true
+                    },
+                    "relatedId": {
+                        "type": "string",
+                        "description": "The ID of the related activity. This could be the OutboundId if the call is an outbound call, the InboundId if the call is an inbound call, or the PearlId if it is a test call.",
+                        "nullable": true
+                    },
+                    "startTime": {
+                        "type": "string",
+                        "description": "The date and time when the call processing started.",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "conversationStatus": {
+                        "$ref": "#/components/schemas/eConversationStatusView"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eCallStatusView"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "The phone number from which the call was made.",
+                        "nullable": true
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": "The phone number to which the call was made.",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name associated with the call, if available.",
+                        "nullable": true
+                    },
+                    "duration": {
+                        "type": "integer",
+                        "description": "The duration of the call in seconds.",
+                        "format": "int32"
+                    },
+                    "recording": {
+                        "type": "string",
+                        "description": "The URL of the recording of the call, if available.",
+                        "nullable": true
+                    },
+                    "transcript": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AgentChatMessageView"
+                        },
+                        "description": "The transcript of the conversation, represented as a list of chat messages.",
+                        "nullable": true
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "A summary of the conversation.",
+                        "nullable": true
+                    },
+                    "collectedInfo": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CollectedInfoView"
+                        },
+                        "description": "A List containing informations collected during the call.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CallListApiView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the call.",
+                        "nullable": true
+                    },
+                    "startTime": {
+                        "type": "string",
+                        "description": "The date and time when the call processing started.",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "conversationStatus": {
+                        "$ref": "#/components/schemas/eConversationStatusView"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eCallStatusView"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "The phone number from which the call was made.",
+                        "nullable": true
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": "The phone number to which the call was made.",
+                        "nullable": true
+                    },
+                    "duration": {
+                        "type": "integer",
+                        "description": "The duration of the call in seconds.",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CallListApiViewTableSearchResult": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "integer",
+                        "description": "The total number of items matching the search criteria.",
+                        "format": "int64"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CallListApiView"
+                        },
+                        "description": "The list of results for the current page, based on the search criteria.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ClientApiView": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the client.",
+                        "nullable": true
+                    },
+                    "totalAgents": {
+                        "type": "integer",
+                        "description": "The total number of agents.",
+                        "format": "int32"
+                    },
+                    "creditBalance": {
+                        "type": "number",
+                        "description": "The current credit balance.",
+                        "format": "double"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eCallAuthorizationStatus"
+                    },
+                    "remainingMinutes": {
+                        "type": "number",
+                        "description": "The remaining minutes available.",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CollectedInfoView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the data collected during the call, corresponding to the placeholder in the Pearl.",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The display name of the variable associated with the collected data.",
+                        "nullable": true
+                    },
+                    "value": {
+                        "description": "The value collected from the call, which could be any type of data.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "InboundApiView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the inbound activity.",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the inbound activity.",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eActivityStatus"
+                    },
+                    "pearlName": {
+                        "type": "string",
+                        "description": "The name of the Pearl associated with this inbound activity.",
+                        "nullable": true
+                    },
+                    "totalAgents": {
+                        "type": "integer",
+                        "description": "The total number of agents allocated to this inbound activity.",
+                        "format": "int32"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "The phone number associated with this inbound activity.",
+                        "nullable": true
+                    },
+                    "totalTodayCalls": {
+                        "type": "integer",
+                        "description": "The total number of calls received today.",
+                        "format": "int32"
+                    },
+                    "totalOngoingCalls": {
+                        "type": "integer",
+                        "description": "The total number of ongoing calls.",
+                        "format": "int32"
+                    },
+                    "totalOnQueue": {
+                        "type": "integer",
+                        "description": "The total number of calls currently in the queue.",
+                        "format": "int32"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "The date and time when the inbound activity was created.",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "InboundListApiView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the inboundy.",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the inbound.",
+                        "nullable": true
+                    },
+                    "totalAgents": {
+                        "type": "integer",
+                        "description": "The total number of agents allocated to this inbound.",
+                        "format": "int32"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eActivityStatus"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "The date and time when the inbound was created.",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LeadListView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "timeZone": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eLeadStatusView"
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LeadListViewTableSearchResult": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "type": "integer",
+                        "description": "The total number of items matching the search criteria.",
+                        "format": "int64"
+                    },
+                    "results": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/LeadListView"
+                        },
+                        "description": "The list of results for the current page, based on the search criteria.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LeadSearch": {
+                "type": "object",
+                "properties": {
+                    "skip": {
+                        "type": "integer",
+                        "description": "Number of entries to skip for pagination.",
+                        "format": "int32"
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Limit on the number of entries to return.",
+                        "format": "int32"
+                    },
+                    "sortProp": {
+                        "type": "string",
+                        "description": "Property name to sort by.",
+                        "nullable": true
+                    },
+                    "isAscending": {
+                        "type": "boolean",
+                        "description": "Whether the sort order is ascending."
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eLeadStatusInputView"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Extends TableSearch to include specific search criteria for leads."
+            },
+            "LeadToAddApi": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "description": "The first name of the lead.",
+                        "nullable": true
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The last name of the lead.",
+                        "nullable": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "The email address of the lead.",
+                        "nullable": true
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "The phone number of the lead.",
+                        "nullable": true
+                    },
+                    "externalId": {
+                        "type": "string",
+                        "description": "An optional external identifier for the lead.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LeadToAddResponse": {
+                "type": "object",
+                "properties": {
+                    "leadId": {
+                        "type": "string",
+                        "description": "The unique identifier of the lead that was added.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Represents the response returned after adding a lead."
+            },
+            "LeadView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the lead, represented as an ObjectId.",
+                        "nullable": true
+                    },
+                    "externalId": {
+                        "type": "string",
+                        "description": "The identifier for the lead from an external system, such as a CRM.",
+                        "nullable": true
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "description": "The first name of the lead.",
+                        "nullable": true
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The last name of the lead.",
+                        "nullable": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "The email address of the lead.",
+                        "nullable": true
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "The phone number of the lead.",
+                        "nullable": true
+                    },
+                    "timeZone": {
+                        "type": "string",
+                        "description": "The time zone of the lead, represented as a float (e.g., -5.0 for EST).",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eLeadStatusView"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "The date and time when the lead was created.",
+                        "format": "date-time"
+                    },
+                    "callsId": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of the ID's of all the calls this lead has received.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "OutboundApiListView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the outbound activity.",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the outbound activity.",
+                        "nullable": true
+                    },
+                    "totalAgents": {
+                        "type": "integer",
+                        "description": "The total number of agents allocated to this outbound activity.",
+                        "format": "int32"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eActivityStatus"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "The date and time when the outbound activity was created.",
+                        "format": "date-time"
+                    },
+                    "budgetTotal": {
+                        "type": "number",
+                        "description": "The total budget allocated for this outbound activity.",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "budgetConsumed": {
+                        "type": "number",
+                        "description": "The amount of the budget that has been consumed so far.",
+                        "format": "double"
+                    },
+                    "totalLeads": {
+                        "type": "integer",
+                        "description": "The total number of leads associated with this outbound activity.",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "OutboundApiView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the outbound activity.",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the outbound activity.",
+                        "nullable": true
+                    },
+                    "totalLeads": {
+                        "type": "integer",
+                        "description": "The total number of leads associated with this outbound activity.",
+                        "format": "int32"
+                    },
+                    "totalLeadsCompleted": {
+                        "type": "integer",
+                        "description": "The total number of leads that have been completed.",
+                        "format": "int32"
+                    },
+                    "totalLeadsSuccess": {
+                        "type": "integer",
+                        "description": "The total number of leads that were successfully converted.",
+                        "format": "int32"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "The phone number used for this outbound activity.",
+                        "nullable": true
+                    },
+                    "pearlName": {
+                        "type": "string",
+                        "description": "The name of the Pearl associated with this outbound activity.",
+                        "nullable": true
+                    },
+                    "budgetTotal": {
+                        "type": "number",
+                        "description": "The total budget allocated for this outbound activity.",
+                        "format": "double",
+                        "nullable": true
+                    },
+                    "budgetConsumed": {
+                        "type": "number",
+                        "description": "The amount of the budget that has been consumed so far.",
+                        "format": "double"
+                    },
+                    "totalAgents": {
+                        "type": "integer",
+                        "description": "The total number of agents allocated to this outbound activity.",
+                        "format": "int32"
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eActivityStatus"
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "The date and time when the outbound activity was created.",
+                        "format": "date-time"
+                    },
+                    "totalTodayCalls": {
+                        "type": "integer",
+                        "description": "The total number of calls made today during this outbound activity.",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "OutboundMakeCallRequest": {
+                "type": "object",
+                "properties": {
+                    "to": {
+                        "type": "string",
+                        "description": "The phone number to which the call will be made.",
+                        "nullable": true
+                    },
+                    "callData": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A dictionary containing additional information about the call.\r\nIt is used as variables that you can use in \"Opening Sentence\" or \"Flow Script\" when you create a Pearl on the platform.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\n\n\nThis parameter is optional.\r\n\n\nHere is an exemple of the json to send:\n\n\r\n`{ \"firstname\" : \"joe\", \"lastName\": \"Martin\" , \"carLicense\" : \"90-929-82\" }`",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Defines the request structure for making an outbound call."
+            },
+            "OutboundMakeCallResult": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier for the call. This ID can be used to track or reference the specific call.",
+                        "nullable": true
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "The phone number from which the call was made. \r\nThis is the originating number used in the outbound call.",
+                        "nullable": true
+                    },
+                    "to": {
+                        "type": "string",
+                        "description": "The phone number to which the call was made. \r\nThis is the destination number that was dialed.",
+                        "nullable": true
+                    },
+                    "queuePosition": {
+                        "type": "integer",
+                        "description": "The position of the call in the queue if the call is placed in a waiting queue.",
+                        "format": "int64"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Defines the result structure for an outbound call operation."
+            },
+            "SetActiveRequest": {
+                "type": "object",
+                "properties": {
+                    "isActive": {
+                        "type": "boolean",
+                        "description": "A boolean value that specifies the new active status of the entity.\r\nTrue activates the entity, while false deactivates it."
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Defines the request structure for setting the active status of an entity."
+            },
+            "TableDateSearch": {
+                "type": "object",
+                "properties": {
+                    "skip": {
+                        "type": "integer",
+                        "description": "Number of entries to skip for pagination.",
+                        "format": "int32"
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Limit on the number of entries to return.",
+                        "format": "int32"
+                    },
+                    "sortProp": {
+                        "type": "string",
+                        "description": "Property name to sort by.",
+                        "nullable": true
+                    },
+                    "isAscending": {
+                        "type": "boolean",
+                        "description": "Whether the sort order is ascending."
+                    },
+                    "fromDate": {
+                        "type": "string",
+                        "description": "The start date for filtering the search results.",
+                        "format": "date-time"
+                    },
+                    "toDate": {
+                        "type": "string",
+                        "description": "The end date for filtering the search results.",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Extends TableSearch to include date filtering for more specific searches."
+            },
+            "ValidationProblemDetails": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "detail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "instance": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "errors": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": {}
+            },
+            "eActivityStatus": {
+                "type": "integer",
+                "description": "Here is the activity status\n\n`1 - Running`\n\n`2 - Paused`\n\n`3 - Suspended`\n\n`10 - TemporaryMaintenance`\n\n",
+                "format": "int32"
+            },
+            "eApiRequestStatus": {
+                "type": "integer",
+                "description": "\n\n`1 - InCallQueue`\n\n`2 - OnCall`\n\n`10 - Completed`\n\n`100 - Error`\n\n",
+                "format": "int32"
+            },
+            "eCallAuthorizationStatus": {
+                "type": "integer",
+                "description": "Represents the authorization status for making calls.\n\n`1 - FullAccess`\n\n`2 - LimitedAccess`\n\n`3 - NoCredits`\n\n`4 - SuspendedAccount`\n\n",
+                "format": "int32"
+            },
+            "eCallStatusView": {
+                "type": "integer",
+                "description": "\n\n`3 - InProgress`\n\n`4 - Completed`\n\n`5 - Busy`\n\n`6 - Failed`\n\n`7 - NoAnswer`\n\n`8 - Canceled`\n\n",
+                "format": "int32"
+            },
+            "eChatMessageRoleView": {
+                "type": "integer",
+                "description": "\n\n`2 - Pearl`\n\n`3 - Client`\n\n",
+                "format": "int32"
+            },
+            "eConversationStatusView": {
+                "type": "integer",
+                "description": "\n\n`10 - NeedRetry`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Error`\n\n",
+                "format": "int32"
+            },
+            "eLeadStatusInputView": {
+                "type": "integer",
+                "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Deleted`\n\n",
+                "format": "int32"
+            },
+            "eLeadStatusView": {
+                "type": "integer",
+                "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
+                "format": "int32"
             }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
+        },
+        "securitySchemes": {
+            "bearer_auth": {
+                "type": "http",
+                "description": "Specify the authorization token.\n\nFor more information, check out the [Authorization Guide](/api-reference/authorization).",
+                "scheme": "bearer"
             }
-          }
         }
-      }
     },
-    "/v1/Inbound/{InboundId}": {
-      "get": {
-        "tags": [
-          "Inbound"
-        ],
-        "summary": "Get Inbound",
-        "description": "Retrieves a specific inbound by its ID",
-        "parameters": [
-          {
-            "name": "InboundId",
-            "in": "path",
-            "description": "The unique identifier of the inbound.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Details of the specific inbound.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/InboundApiView"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InboundApiView"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/InboundApiView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
+    "security": [
+        {
+            "bearer_auth": []
         }
-      }
-    },
-    "/v1/Inbound/{inboundId}/Active": {
-      "post": {
-        "tags": [
-          "Inbound"
-        ],
-        "summary": "Set Activity State",
-        "description": "Run or Pause a specific inbound",
-        "parameters": [
-          {
-            "name": "inboundId",
-            "in": "path",
-            "description": "The unique identifier of the inbound.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The request containing the desired active state.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetActiveRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetActiveRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetActiveRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The active state of the inbound.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/eActivityStatus"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/eActivityStatus"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/eActivityStatus"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Inbound/{inboundId}/Calls": {
-      "post": {
-        "tags": [
-          "Inbound"
-        ],
-        "summary": "Search Calls",
-        "description": "Retrieves the calls within a specific date range of inbound",
-        "parameters": [
-          {
-            "name": "inboundId",
-            "in": "path",
-            "description": "The unique identifier of the inbound configuration.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The search criteria including date range and sorting parameters.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Calls within the specified date range for inbound.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound": {
-      "get": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Get Outbounds",
-        "description": "Retreive all the Outbounds",
-        "responses": {
-          "200": {
-            "description": "A list of outbounds.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OutboundApiListView"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OutboundApiListView"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OutboundApiListView"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}": {
-      "get": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Get Outbound",
-        "description": "Retrieve a specific outbound by its ID",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The unique identifier of the outbound.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Detailed view of a specific outbound.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/OutboundApiView"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OutboundApiView"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OutboundApiView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}/Active": {
-      "post": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Set Activity State",
-        "description": "Activates or deactivates a specified outbound",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The unique identifier of the outbound.\n\nRetreive it in [Get outbound](api-reference/outbound/get-outbounds)",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The request containing the activation state.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetActiveRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetActiveRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetActiveRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The active state of the outbound.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/eActivityStatus"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/eActivityStatus"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/eActivityStatus"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}/Calls": {
-      "post": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Search Calls",
-        "description": "Retrieves the calls within a specific date range for a given outbound",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The outbound's unique identifier.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The search criteria including date range and sorting parameters.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Calls within the specified date range for the outbound.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CallListApiViewTableSearchResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}/Lead": {
-      "put": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Add Lead",
-        "description": "Adds a new lead to a specified outbound",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The unique identifier of the outbound campaign to which the lead will be added.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The lead details to be added to the outbound campaign.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeadToAddApi"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeadToAddApi"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeadToAddApi"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Id of the added lead.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadToAddResponse"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadToAddResponse"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadToAddResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}/Leads": {
-      "post": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Search Leads",
-        "description": "Retrieves the leads associated with a specific outbound",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The unique identifier of the outbound.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "Search criteria for the leads.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeadSearch"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeadSearch"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LeadSearch"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "List of leads for the outbound.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadListViewTableSearchResult"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadListViewTableSearchResult"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadListViewTableSearchResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}/Lead/{leadId}": {
-      "get": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Get Lead",
-        "description": "Retrieves details of a specific lead within a outbound",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The unique identifier of the outbound campaign.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "leadId",
-            "in": "path",
-            "description": "The unique identifier of the lead within the outbound campaign.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Details of the specific lead.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadView"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadView"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}/Lead/Extrenal/{externalId}": {
-      "get": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Get Lead Via External ID",
-        "description": "Retrieves details of a specific lead within a outbound",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The unique identifier of the outbound campaign.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "externalId",
-            "in": "path",
-            "description": "The external identifier of the lead within the outbound campaign.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Details of the specific lead.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadView"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadView"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LeadView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Error",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}/Call": {
-      "post": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Make Call",
-        "description": "Initiates an outbound phone call associated with the specified outbound ID. The request body must contain the necessary details for making the call. Once initiated, the call will be routed to the first available agent.",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The unique identifier of the outbound campaign for which the call is being initiated.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The details required to make the outbound phone call, encapsulated in an NLPearl.Core.Models.OutboundMakeCallRequest object.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OutboundMakeCallRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/OutboundMakeCallRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/OutboundMakeCallRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The outbound phone call was successfully initiated and the active state is returned.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/OutboundMakeCallResult"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OutboundMakeCallResult"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OutboundMakeCallResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request was invalid. Possible causes include a missing or malformed outbound ID, or errors in the call request details.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/CallRequest/{requestId}": {
-      "get": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Get Call Request",
-        "description": "Fetches detailed information about a specific API request identified by its unique requestId.",
-        "parameters": [
-          {
-            "name": "requestId",
-            "in": "path",
-            "description": "The unique identifier of the API request to retrieve.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The details of the API request were successfully retrieved.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiRequestView"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiRequestView"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiRequestView"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request was invalid. Possible causes include a missing or malformed requestId.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/v1/Outbound/{outboundId}/CallRequest": {
-      "post": {
-        "tags": [
-          "Outbound"
-        ],
-        "summary": "Search Call Requests",
-        "description": "Fetches a list of API call requests associated with a specific outbound identifier. The search criteria, such as filters or pagination options, should be provided in the request body.",
-        "parameters": [
-          {
-            "name": "outboundId",
-            "in": "path",
-            "description": "The unique identifier of the outbound campaign for which the API call requests are being retrieved.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The search criteria, including filters or pagination options, provided in the request body.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableDateSearch"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "A list of API call requests related to the specified outbound ID was successfully retrieved.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiRequestViewTableSearchResult"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiRequestViewTableSearchResult"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiRequestViewTableSearchResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request was invalid. Possible causes include a missing or malformed outbound ID, or errors in the search parameters.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "AgentChatMessageView": {
-        "type": "object",
-        "properties": {
-          "role": {
-            "$ref": "#/components/schemas/eChatMessageRoleView"
-          },
-          "content": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ApiRequestView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the API request.",
-            "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/eApiRequestStatus"
-          },
-          "outboundId": {
-            "type": "string",
-            "description": "The unique identifier of the outbound campaign associated with this API request.",
-            "nullable": true
-          },
-          "created": {
-            "type": "string",
-            "description": "The date and time when the API request was created.",
-            "format": "date-time"
-          },
-          "errors": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "A list of errors that occurred during the API request, if any.",
-            "nullable": true
-          },
-          "callId": {
-            "type": "string",
-            "description": "The unique identifier of the call associated with this API request, if available.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ApiRequestViewTableSearchResult": {
-        "type": "object",
-        "properties": {
-          "count": {
-            "type": "integer",
-            "description": "The total number of items matching the search criteria.",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ApiRequestView"
-            },
-            "description": "The list of results for the current page, based on the search criteria.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CallApiView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the call.",
-            "nullable": true
-          },
-          "startTime": {
-            "type": "string",
-            "description": "The date and time when the call processing started.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "conversationStatus": {
-            "$ref": "#/components/schemas/eConversationStatusView"
-          },
-          "status": {
-            "$ref": "#/components/schemas/eCallStatusView"
-          },
-          "from": {
-            "type": "string",
-            "description": "The phone number from which the call was made.",
-            "nullable": true
-          },
-          "to": {
-            "type": "string",
-            "description": "The phone number to which the call was made.",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name associated with the call, if available.",
-            "nullable": true
-          },
-          "duration": {
-            "type": "integer",
-            "description": "The duration of the call in seconds.",
-            "format": "int32"
-          },
-          "recording": {
-            "type": "string",
-            "description": "The URL of the recording of the call, if available.",
-            "nullable": true
-          },
-          "transcript": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AgentChatMessageView"
-            },
-            "description": "The transcript of the conversation, represented as a list of chat messages.",
-            "nullable": true
-          },
-          "summary": {
-            "type": "string",
-            "description": "A summary of the conversation.",
-            "nullable": true
-          },
-          "collectedInfo": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string",
-              "nullable": true
-            },
-            "description": "A dictionary containing information collected during the call.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CallListApiView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the call.",
-            "nullable": true
-          },
-          "startTime": {
-            "type": "string",
-            "description": "The date and time when the call processing started.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "conversationStatus": {
-            "$ref": "#/components/schemas/eConversationStatusView"
-          },
-          "status": {
-            "$ref": "#/components/schemas/eCallStatusView"
-          },
-          "from": {
-            "type": "string",
-            "description": "The phone number from which the call was made.",
-            "nullable": true
-          },
-          "to": {
-            "type": "string",
-            "description": "The phone number to which the call was made.",
-            "nullable": true
-          },
-          "duration": {
-            "type": "integer",
-            "description": "The duration of the call in seconds.",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "CallListApiViewTableSearchResult": {
-        "type": "object",
-        "properties": {
-          "count": {
-            "type": "integer",
-            "description": "The total number of items matching the search criteria.",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CallListApiView"
-            },
-            "description": "The list of results for the current page, based on the search criteria.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ClientApiView": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the client.",
-            "nullable": true
-          },
-          "totalAgents": {
-            "type": "integer",
-            "description": "The total number of agents.",
-            "format": "int32"
-          },
-          "creditBalance": {
-            "type": "number",
-            "description": "The current credit balance.",
-            "format": "double"
-          },
-          "status": {
-            "$ref": "#/components/schemas/eCallAuthorizationStatus"
-          },
-          "remainingMinutes": {
-            "type": "number",
-            "description": "The remaining minutes available.",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "InboundApiView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the inbound activity.",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the inbound activity.",
-            "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/eActivityStatus"
-          },
-          "pearlName": {
-            "type": "string",
-            "description": "The name of the Pearl associated with this inbound activity.",
-            "nullable": true
-          },
-          "totalAgents": {
-            "type": "integer",
-            "description": "The total number of agents allocated to this inbound activity.",
-            "format": "int32"
-          },
-          "phoneNumber": {
-            "type": "string",
-            "description": "The phone number associated with this inbound activity.",
-            "nullable": true
-          },
-          "totalTodayCalls": {
-            "type": "integer",
-            "description": "The total number of calls received today.",
-            "format": "int32"
-          },
-          "totalOngoingCalls": {
-            "type": "integer",
-            "description": "The total number of ongoing calls.",
-            "format": "int32"
-          },
-          "totalOnQueue": {
-            "type": "integer",
-            "description": "The total number of calls currently in the queue.",
-            "format": "int32"
-          },
-          "created": {
-            "type": "string",
-            "description": "The date and time when the inbound activity was created.",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "InboundListApiView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the inboundy.",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the inbound.",
-            "nullable": true
-          },
-          "totalAgents": {
-            "type": "integer",
-            "description": "The total number of agents allocated to this inbound.",
-            "format": "int32"
-          },
-          "status": {
-            "$ref": "#/components/schemas/eActivityStatus"
-          },
-          "created": {
-            "type": "string",
-            "description": "The date and time when the inbound was created.",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LeadListView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "externalId": {
-            "type": "string",
-            "nullable": true
-          },
-          "firstName": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "timeZone": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/eLeadStatusView"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "LeadListViewTableSearchResult": {
-        "type": "object",
-        "properties": {
-          "count": {
-            "type": "integer",
-            "description": "The total number of items matching the search criteria.",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LeadListView"
-            },
-            "description": "The list of results for the current page, based on the search criteria.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LeadSearch": {
-        "type": "object",
-        "properties": {
-          "skip": {
-            "type": "integer",
-            "description": "Number of entries to skip for pagination.",
-            "format": "int32"
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limit on the number of entries to return.",
-            "format": "int32"
-          },
-          "sortProp": {
-            "type": "string",
-            "description": "Property name to sort by.",
-            "nullable": true
-          },
-          "isAscending": {
-            "type": "boolean",
-            "description": "Whether the sort order is ascending."
-          },
-          "status": {
-            "$ref": "#/components/schemas/eLeadStatusInputView"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Extends TableSearch to include specific search criteria for leads."
-      },
-      "LeadToAddApi": {
-        "type": "object",
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "description": "The first name of the lead.",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "description": "The last name of the lead.",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "description": "The email address of the lead.",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "description": "The phone number of the lead.",
-            "nullable": true
-          },
-          "externalId": {
-            "type": "string",
-            "description": "An optional external identifier for the lead.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LeadToAddResponse": {
-        "type": "object",
-        "properties": {
-          "leadId": {
-            "type": "string",
-            "description": "The unique identifier of the lead that was added.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents the response returned after adding a lead."
-      },
-      "LeadView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the lead, represented as an ObjectId.",
-            "nullable": true
-          },
-          "externalId": {
-            "type": "string",
-            "description": "The identifier for the lead from an external system, such as a CRM.",
-            "nullable": true
-          },
-          "firstName": {
-            "type": "string",
-            "description": "The first name of the lead.",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "description": "The last name of the lead.",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "description": "The email address of the lead.",
-            "nullable": true
-          },
-          "phoneNumber": {
-            "type": "string",
-            "description": "The phone number of the lead.",
-            "nullable": true
-          },
-          "timeZone": {
-            "type": "string",
-            "description": "The time zone of the lead, represented as a float (e.g., -5.0 for EST).",
-            "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/eLeadStatusView"
-          },
-          "created": {
-            "type": "string",
-            "description": "The date and time when the lead was created.",
-            "format": "date-time"
-          },
-          "callsId": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "The list of the ID's of all the calls this lead has received.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "OutboundApiListView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the outbound activity.",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the outbound activity.",
-            "nullable": true
-          },
-          "totalAgents": {
-            "type": "integer",
-            "description": "The total number of agents allocated to this outbound activity.",
-            "format": "int32"
-          },
-          "status": {
-            "$ref": "#/components/schemas/eActivityStatus"
-          },
-          "created": {
-            "type": "string",
-            "description": "The date and time when the outbound activity was created.",
-            "format": "date-time"
-          },
-          "budgetTotal": {
-            "type": "number",
-            "description": "The total budget allocated for this outbound activity.",
-            "format": "double",
-            "nullable": true
-          },
-          "budgetConsumed": {
-            "type": "number",
-            "description": "The amount of the budget that has been consumed so far.",
-            "format": "double"
-          },
-          "totalLeads": {
-            "type": "integer",
-            "description": "The total number of leads associated with this outbound activity.",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "OutboundApiView": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier of the outbound activity.",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "description": "The name of the outbound activity.",
-            "nullable": true
-          },
-          "totalLeads": {
-            "type": "integer",
-            "description": "The total number of leads associated with this outbound activity.",
-            "format": "int32"
-          },
-          "totalLeadsCompleted": {
-            "type": "integer",
-            "description": "The total number of leads that have been completed.",
-            "format": "int32"
-          },
-          "totalLeadsSuccess": {
-            "type": "integer",
-            "description": "The total number of leads that were successfully converted.",
-            "format": "int32"
-          },
-          "phoneNumber": {
-            "type": "string",
-            "description": "The phone number used for this outbound activity.",
-            "nullable": true
-          },
-          "pearlName": {
-            "type": "string",
-            "description": "The name of the Pearl associated with this outbound activity.",
-            "nullable": true
-          },
-          "budgetTotal": {
-            "type": "number",
-            "description": "The total budget allocated for this outbound activity.",
-            "format": "double",
-            "nullable": true
-          },
-          "budgetConsumed": {
-            "type": "number",
-            "description": "The amount of the budget that has been consumed so far.",
-            "format": "double"
-          },
-          "totalAgents": {
-            "type": "integer",
-            "description": "The total number of agents allocated to this outbound activity.",
-            "format": "int32"
-          },
-          "status": {
-            "$ref": "#/components/schemas/eActivityStatus"
-          },
-          "created": {
-            "type": "string",
-            "description": "The date and time when the outbound activity was created.",
-            "format": "date-time"
-          },
-          "totalTodayCalls": {
-            "type": "integer",
-            "description": "The total number of calls made today during this outbound activity.",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "OutboundMakeCallRequest": {
-        "type": "object",
-        "properties": {
-          "to": {
-            "type": "string",
-            "description": "The phone number to which the call will be made.",
-            "nullable": true
-          },
-          "leadInformation": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "description": "A dictionary containing additional information about the lead.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\n\n\nThis parameter is optional.\r\n\n\nHere is an exemple of the json to send:\n\n\r\n`{ \"firstname\" : \"joe\", \"lastName\": \"Martin\" }`",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines the request structure for making an outbound call."
-      },
-      "OutboundMakeCallResult": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The unique identifier for the call. This ID can be used to track or reference the specific call.",
-            "nullable": true
-          },
-          "from": {
-            "type": "string",
-            "description": "The phone number from which the call was made. \r\nThis is the originating number used in the outbound call.",
-            "nullable": true
-          },
-          "to": {
-            "type": "string",
-            "description": "The phone number to which the call was made. \r\nThis is the destination number that was dialed.",
-            "nullable": true
-          },
-          "queuePosition": {
-            "type": "integer",
-            "description": "The position of the call in the queue if the call is placed in a waiting queue.",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines the result structure for an outbound call operation."
-      },
-      "SetActiveRequest": {
-        "type": "object",
-        "properties": {
-          "isActive": {
-            "type": "boolean",
-            "description": "A boolean value that specifies the new active status of the entity.\r\nTrue activates the entity, while false deactivates it."
-          }
-        },
-        "additionalProperties": false,
-        "description": "Defines the request structure for setting the active status of an entity."
-      },
-      "TableDateSearch": {
-        "type": "object",
-        "properties": {
-          "skip": {
-            "type": "integer",
-            "description": "Number of entries to skip for pagination.",
-            "format": "int32"
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limit on the number of entries to return.",
-            "format": "int32"
-          },
-          "sortProp": {
-            "type": "string",
-            "description": "Property name to sort by.",
-            "nullable": true
-          },
-          "isAscending": {
-            "type": "boolean",
-            "description": "Whether the sort order is ascending."
-          },
-          "fromDate": {
-            "type": "string",
-            "description": "The start date for filtering the search results.",
-            "format": "date-time"
-          },
-          "toDate": {
-            "type": "string",
-            "description": "The end date for filtering the search results.",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Extends TableSearch to include date filtering for more specific searches."
-      },
-      "ValidationProblemDetails": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "errors": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": { }
-      },
-      "eActivityStatus": {
-        "type": "integer",
-        "description": "Here is the activity status\n\n`1 - Running`\n\n`2 - Paused`\n\n`3 - Suspended`\n\n`10 - TemporaryMaintenance`\n\n",
-        "format": "int32"
-      },
-      "eApiRequestStatus": {
-        "type": "integer",
-        "description": "\n\n`1 - InCallQueue`\n\n`2 - OnCall`\n\n`10 - Completed`\n\n`100 - Error`\n\n",
-        "format": "int32"
-      },
-      "eCallAuthorizationStatus": {
-        "type": "integer",
-        "description": "Represents the authorization status for making calls.\n\n`1 - FullAccess`\n\n`2 - LimitedAccess`\n\n`3 - NoCredits`\n\n`4 - SuspendedAccount`\n\n",
-        "format": "int32"
-      },
-      "eCallStatusView": {
-        "type": "integer",
-        "description": "\n\n`4 - Completed`\n\n`5 - Busy`\n\n`6 - Failed`\n\n`7 - NoAnswer`\n\n`8 - Canceled`\n\n",
-        "format": "int32"
-      },
-      "eChatMessageRoleView": {
-        "type": "integer",
-        "description": "\n\n`2 - Pearl`\n\n`3 - Client`\n\n",
-        "format": "int32"
-      },
-      "eConversationStatusView": {
-        "type": "integer",
-        "description": "\n\n`10 - NeedRetry`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Error`\n\n",
-        "format": "int32"
-      },
-      "eLeadStatusInputView": {
-        "type": "integer",
-        "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Deleted`\n\n",
-        "format": "int32"
-      },
-      "eLeadStatusView": {
-        "type": "integer",
-        "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
-        "format": "int32"
-      }
-    },
-    "securitySchemes": {
-      "bearer_auth": {
-        "type": "http",
-        "description": "Specify the authorization token.\n\nFor more information, check out the [Authorization Guide](/api-reference/authorization).",
-        "scheme": "bearer"
-      }
-    }
-  },
-  "security": [
-    {
-      "bearer_auth": [ ]
-    }
-  ]
+    ]
 }
