@@ -1,0 +1,38 @@
+---
+title: Transfer Call
+description: 'Learn how to use the Transfer Call action in NLPearl.AI to seamlessly redirect calls during a conversation.'
+---
+
+
+One of the powerful actions available during a call in NLPearl.AI is the **Transfer Call** feature. This allows your Pearl to transfer a call from itself directly to any phone number you specify.
+
+
+<img
+  className="block"
+  src="/images/exemples/tranfer_call.png"
+  alt="Transfer Call Setup"
+/>
+
+### How to Configure Transfer Call
+
+To set up a Transfer Call action, while you are creating a Pearl, you need to provide two key pieces of information:
+
+1. **Phone Number**: This is the phone number to which you want the call to be transferred. Ensure that the phone number is accurate and can accept calls from your activity's assigned phone number.
+
+2. **When to Take Action**: This field specifies the conditions under which Pearl should transfer the call. For example, you might set it to "when the customer asks to speak to a manager" or "when the prospect is ready to make a payment."
+
+### Important Considerations
+
+- **Country Code Matching**: Your Pearl will be connected to an activity with a specific phone number assigned to it. 
+If the phone number you choose for the transfer call does not match the country code of the activity's assigned phone number, the Pearl cannot be linked to that activity. 
+Ensure that the phone numbers are compatible to be able to affect it to your Inbound/Outbound Activity.
+
+### Example Usage
+
+- **Phone Number**: `+1234567890`
+- **When to Take Action**: "When the customer asks to speak to a manager"
+
+- **Phone Number**: `+1987654321`
+- **When to Take Action**: "When the prospect is ready to make a payment"
+
+

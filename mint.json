@@ -58,7 +58,13 @@
         "pages/create_pearl",
         "pages/custom_pearl",
         "pages/languages",
-        "pages/action",
+        {
+          "group": "Actions",
+            "pages": [
+              "pages/action",
+              "pages/transfer_call"
+            ]
+      },
         "pages/calls"
       ]
     },
