@@ -82,6 +82,7 @@
         "pages/agents",
         "pages/phone_numbers",
         "pages/phone_number_reg",
+         "pages/twilio_integration",
         "pages/billing"
       ]
     },
