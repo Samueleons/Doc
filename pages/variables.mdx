@@ -1,0 +1,90 @@
+---
+title: "Variables"
+description: "Learn how to effectively use variables in NLPearl.AI to enhance your Pearl's conversational flows."
+---
+
+## Understanding Variables in NLPearl.AI
+
+When creating a Pearl in NLPearl.AI, one of the most powerful tools at your disposal is the use of **variables**. These variables allow you to dynamically personalize conversations, making them more engaging and contextually relevant. Understanding how to use these variables effectively is key to getting the most out of your AI-driven interactions.
+
+### Built-In and Custom Variables
+
+NLPearl.AI comes with a set of built-in variables such as `firstName`, `lastName`, `agentName`, `companyName`, etc. However, you also have the flexibility to create **custom variables** to suit your specific needs.
+
+### Creating a Custom Variable
+
+When creating a new variable, you need to provide the following details:
+
+- **Display Name**: This is how the variable will appear on the platform and in the call information. It’s the human-readable name of your variable.
+- **Id**: This is the unique identifier for the variable, which you will use as a key in `callData` when making an API request. The Id is automatically generated when you fill in the Display Name but can be customized.
+- **Type**: The data type of the variable, such as `boolean`, `float`, `int`, or `string`.
+- **Description**: This is a critical field where you describe the purpose of the variable. It’s important to fill this out wisely, especially if the variable is meant to be collected during the call.
+
+### Types of Variables
+
+There are two main types of variables:
+
+1. **Predefined Information Variables**: These variables hold information that is known before the call and can be used as placeholders in your conversational flow.
+
+   #### Example Usage:
+   - **Opening Sentence**: "Hello, I am `agentName` from `companyName`. How can I assist you?"
+   - **Script Example**: "Ask the prospect if his name is still `firstName` `lastName`."
+
+   You can also create your own variables to be used in a similar fashion. For instance, if you are selling cars, you could create variables like `Brand`, `color`, or `priceProposed`.
+
+   #### API Request Example:
+   ```json
+   {
+     "to": "+1345678991",
+     "callData": {
+       "firstName": "Josh",
+       "lastName": "Martin",
+       "brand": "BMW",
+       "color": "gray",
+       "priceProposed": "two hundred thousand dollars"
+     }
+   }
+   ```
+	- **Opening Sentence**: "Hello `firstName`, I am calling about the `color` `brand` you were interested in..."
+	- **Script Example**: "Ask the prospect if he agrees with the price `priceProposed`."
+
+	**Important:** Make sure to use the **Id** (e.g., `priceProposed`) of the variable in your API request dictionary, not the Display Name (e.g., `Price Proposed`), to ensure proper functionality.
+	   
+	   
+	   
+2. **Collected Information Variables**: These variables are used to gather information during the call that was not known beforehand. For example, you might instruct Pearl to ask the prospect what price they are willing to pay: "Ask the prospect what the `priceProposed` they want."
+
+   Once collected, this information will be displayed in the "Call Information" section on your dashboard and can also be reused in other parts of the conversation or in post-call actions like sending an SMS, email, or even in an API call.
+
+### Mixing Use Cases
+
+You can combine the use of predefined and collected information variables in a single script. For example:
+
+- **Script Example**: "Verify the price `priceProposed` with the prospect."
+
+If you already have this information before the call:
+```json
+{
+  "to": "+1345678991",
+  "callData": {
+    "firstName": "Josh",
+    "priceProposed": "two hundred thousand dollars"
+  }
+}
+```
+Here ,Pearl will simply ask for confirmation of the price. 
+
+-If you don’t have the information:
+```json
+{
+  "to": "+1345678991",
+  "callData": {
+    "firstName": "Josh"
+  }
+}
+```
+Pearl will ask for the price during the call based on the variable's definition.
+
+### Conclusion
+
+Variables in NLPearl.AI offer a powerful way to personalize and optimize your AI-driven conversations. By effectively defining and utilizing variables—whether for integrating pre-existing information or collecting new data during calls—you can significantly enhance your Pearl’s performance and the overall customer experience. Additionally, variables can be leveraged in actions such as sending SMS, emails, or other post-call activities, enabling tailored communications based on the insights gathered during interactions.

@@ -57,6 +57,7 @@
       "pages": [
         "pages/create_pearl",
         "pages/custom_pearl",
+        "pages/variables",
         "pages/languages",
         {
           "group": "Actions",
