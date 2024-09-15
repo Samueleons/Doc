@@ -1875,7 +1875,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "A dictionary containing additional information about the call.\r\nIt is used as variables that you can use in \"Opening Sentence\" or \"Flow Script\" when you create a Pearl on the platform.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\n\n\nThis parameter is optional.\r\n\n\nHere is an exemple of the json to send:\n\n\r\n`{ \"firstname\" : \"joe\", \"lastName\": \"Martin\" , \"carLicense\" : \"90-929-82\" }`",
+                        "description": "A dictionary containing additional information about the call.\r\nIt is used as variables that you can use in \"Opening Sentence\" or \"Flow Script\" when you create a Pearl on the platform.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\n\n\nThis parameter is optional.see [Variables](/pages/action)\r\n\n\nHere is an exemple of the json to send:\n\n\r\n`{ \"firstname\" : \"joe\", \"lastName\": \"Martin\" , \"carLicense\" : \"90-929-82\" }`",
                         "nullable": true
                     }
                 },
