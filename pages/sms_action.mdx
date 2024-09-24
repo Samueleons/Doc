@@ -1,0 +1,56 @@
+---
+title: Send SMS
+description: 'Learn how to configure the "Send SMS" action within a Pearl, allowing your AI agent to send SMS messages during a conversation.'
+---
+
+
+NLPearl.AI enables your AI agent to send SMS messages during a live conversation. This feature allows for real-time communication, ensuring that your customers receive important information instantly.
+
+<img
+	className="block dark:hidden"
+	src="/images/exemples/sms.png"
+	alt="SMS Action Setup"
+	style={{ borderRadius: '18px' }}
+/>
+<img
+	className="hidden dark:block"
+	src="/images/exemples/sms.png"
+	alt="SMS Action Setup"
+	style={{ borderRadius: '18px' }}
+/>
+
+### Configuring the "Send SMS" Action
+
+To activate and configure the "Send SMS" action within a Pearl, follow these steps:
+
+1. **Navigate to the Call Action Section**: While creating or editing a Pearl, go to the "Call Action" section.
+2. **Click on SMS**: Select the "SMS" option to activate this functionality for your Pearl.
+
+### Fields to Configure
+
+- **SMS Content**: 
+  - **Compose Your Message**: Write the SMS content that you want to be sent out. You can include links, important details, or any relevant information. Additionally, you can use variables within the SMS to personalize the message for each recipient. For example, "Hi {firstName}, your reservation at {restaurantName} is confirmed."
+
+- **When to Take Action**: 
+  - **Trigger Condition**: Describe when you want the SMS to be sent. This could be immediately after a specific event occurs during the conversation. For example, "Send the SMS immediately after the table reservation is confirmed and processed."
+
+### Example Use Cases
+
+Here are some scenarios where the "Send SMS" action can be effectively used:
+
+- **Reservation Confirmations**: After confirming a reservation, Pearl can automatically send an SMS to the customer with the details.
+- **Appointment Reminders**: Pearl can send a reminder SMS to the customer about an upcoming appointment or event.
+
+### Regulatory Compliance
+
+To ensure compliance with regulations, Pearl will always ask the third-party customer for their consent before sending an SMS. This step is crucial in respecting the customer's preferences and adhering to communication laws.
+
+<CardGroup cols={1}>
+  <Card
+    title="Variables"
+    icon="puzzle-piece"
+    href="/pages/variables"
+  >
+    Learn how to use variables to personalize your SMS content.
+  </Card>
+</CardGroup>

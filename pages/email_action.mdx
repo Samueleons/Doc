@@ -1,0 +1,48 @@
+---
+title: Send An Email
+description: 'Learn how to configure the "Send An Email" action within a Pearl, allowing your AI agent to send emails during a conversation.'
+---
+
+
+One of the powerful actions that your AI agent can handle in real-time is "Sending an Email." This allows your agent to automatically send an email based on specific conditions during a conversation.
+
+
+<img
+  className="block dark:hidden"
+src="/images/exemples/emailAction.png"
+  alt="Transfer Call Setup"
+  style={{ borderRadius: '18px' }}
+/>
+<img
+  className="hidden dark:block"
+src="/images/exemples/emailAction.png"
+  alt="Transfer Call Setup"
+  style={{ borderRadius: '18px' }}
+/>
+
+### Configuring the "Send An Email" Action
+
+During the creation of a Pearl, you can easily activate and configure the "Send An Email" action in the Actions section. Here's how to set it up:
+
+1. **Activate the Action**: Click on "Send Email" in the Actions section to enable this functionality for your Pearl.
+
+2. **Configure Email Details**: Once activated, you'll need to fill out a few key fields to customize the email that will be sent.
+
+### Fields to Configure
+
+- **Subject**: Just like in a regular email, you can set the subject line here. You can also use created variables within this field to personalize the subject for each recipient. For example, you might use the prospect's first name in the subject line.
+
+- **Email Content**: This is the body of your email. Write any message you want to be sent out, and again, you can use variables to customize the content. For example, include specific details gathered during the conversation, such as a price quote or meeting time.
+
+- **When to Take Action**: This field is crucial. Here, you describe the conditions under which you want the agent to send the email. For example, "Send an email when the customer agrees to receive more information" or "Send a confirmation email when the prospect is ready to finalize the deal." Your agent will automatically send the email when these conditions are met during the discussion.
+
+<CardGroup cols={1}>
+  <Card
+    title="Variables"
+    icon="puzzle-piece"
+    href="/pages/variables"
+  >
+    Learn how to use variables for your.
+  </Card>
+</CardGroup>
+

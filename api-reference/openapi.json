@@ -1226,7 +1226,7 @@
     },
     "components": {
         "schemas": {
-            "AgentChatMessageView": {
+            "AgentChatMessageApiView": {
                 "type": "object",
                 "properties": {
                     "role": {
@@ -1348,7 +1348,7 @@
                     "transcript": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/AgentChatMessageView"
+                            "$ref": "#/components/schemas/AgentChatMessageApiView"
                         },
                         "description": "The transcript of the conversation, represented as a list of chat messages.",
                         "nullable": true
@@ -1460,16 +1460,16 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "The unique identifier of the data collected during the call, corresponding to the placeholder in the Pearl.",
+                        "description": "The ID of the variable collected",
                         "nullable": true
                     },
                     "name": {
                         "type": "string",
-                        "description": "The display name of the variable associated with the collected data.",
+                        "description": "The display name of the variable collected.",
                         "nullable": true
                     },
                     "value": {
-                        "description": "The value collected from the call, which could be any type of data.",
+                        "description": "The value of the variable collected.",
                         "nullable": true
                     }
                 },
@@ -1563,30 +1563,37 @@
                 "properties": {
                     "id": {
                         "type": "string",
+                        "description": "The unique ID of the lead.",
                         "nullable": true
                     },
                     "externalId": {
                         "type": "string",
+                        "description": "The external ID of the lead, typically from a CRM request or another external source.",
                         "nullable": true
                     },
                     "firstName": {
                         "type": "string",
+                        "description": "The first name of the lead.",
                         "nullable": true
                     },
                     "lastName": {
                         "type": "string",
+                        "description": "The last name of the lead.",
                         "nullable": true
                     },
                     "email": {
                         "type": "string",
+                        "description": "The email address of the lead.",
                         "nullable": true
                     },
                     "phoneNumber": {
                         "type": "string",
+                        "description": "The phone number of the lead.",
                         "nullable": true
                     },
                     "timeZone": {
                         "type": "string",
+                        "description": "The time zone of the lead.",
                         "nullable": true
                     },
                     "status": {
@@ -1594,6 +1601,7 @@
                     },
                     "created": {
                         "type": "string",
+                        "description": "The date and time when the lead was created.",
                         "format": "date-time"
                     }
                 },
@@ -1875,7 +1883,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "A dictionary containing additional information about the call.\r\nIt is used as variables that you can use in \"Opening Sentence\" or \"Flow Script\" when you create a Pearl on the platform.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\n\n\nThis parameter is optional.see [Variables](/pages/variables)\r\n\n\nHere is an exemple of the json to send:\n\n\r\n`{ \"firstname\" : \"joe\", \"lastName\": \"Martin\" , \"carLicense\" : \"90-929-82\" }`",
+                        "description": "A dictionary containing additional information about the call.\r\nIt is used as variables that you can use in \"Opening Sentence\" or \"Flow Script\" when you create a Pearl on the platform.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\n\n\nThis parameter is optional.\r\n\n\nsee [Variables](/pages/variables) for more information.\r\n\n\nHere is an exemple of the json to send:\n\n\r\n`{ \"firstname\" : \"joe\", \"lastName\": \"Martin\" , \"carLicense\" : \"90-929-82\" }`",
                         "nullable": true
                     }
                 },
@@ -2010,7 +2018,7 @@
             },
             "eCallStatusView": {
                 "type": "integer",
-                "description": "\n\n`3 - InProgress`\n\n`4 - Completed`\n\n`5 - Busy`\n\n`6 - Failed`\n\n`7 - NoAnswer`\n\n`8 - Canceled`\n\n",
+                "description": "Represents the current status of a call.\n\n`3 - InProgress`\n\n`4 - Completed`\n\n`5 - Busy`\n\n`6 - Failed`\n\n`7 - NoAnswer`\n\n`8 - Canceled`\n\n",
                 "format": "int32"
             },
             "eChatMessageRoleView": {
@@ -2020,7 +2028,7 @@
             },
             "eConversationStatusView": {
                 "type": "integer",
-                "description": "\n\n`10 - NeedRetry`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Error`\n\n",
+                "description": "The outcome of the conversation during the call.\n\nTo determine the definition of 'Success' or 'Not Successful,' please refer to the [Create a Pearl](/pages/create_pearl#pearl-name) page at step 4.\n\n`10 - NeedRetry`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Error`\n\n",
                 "format": "int32"
             },
             "eLeadStatusInputView": {
@@ -2030,7 +2038,7 @@
             },
             "eLeadStatusView": {
                 "type": "integer",
-                "description": "\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
+                "description": "The Status of the lead is the status of the last conversation.\n\nTo determine the definition of 'Success' or 'Not Successful,' please refer to the [Create a Pearl](/pages/create_pearl#pearl-name) page at step 4.\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
                 "format": "int32"
             }
         },

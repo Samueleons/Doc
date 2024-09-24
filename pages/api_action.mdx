@@ -1,0 +1,94 @@
+---
+title: API
+description: 'Learn how to configure your Pearl to call an API during a live conversation.'
+---
+
+NLPearl.AI allows your Pearl to interact with external systems by making API calls in real-time during a conversation. This powerful feature enables your AI agent to fetch, post, or update information dynamically, providing a seamless and personalized experience for your customers.
+
+<img
+  className="block dark:hidden"
+  src="/images/exemples/apiAction.png"
+  alt="API Call Setup"
+  style={{ borderRadius: '18px' }}
+/>
+<img
+  className="hidden dark:block"
+  src="/images/exemples/apiAction.png"
+  alt="API Call Setup"
+  style={{ borderRadius: '18px' }}
+/>
+
+### Configuring API Actions in a Pearl
+
+To set up an API call within your Pearl, follow these steps:
+
+1. **Navigate to the Action Section**: While creating or editing a Pearl, go to the Action section.
+2. **Add a New API Action**: Click on "API" and then "Add New" to start configuring your API request.
+
+<img
+  className="block dark:hidden"
+  src="/images/exemples/apiAction1.png"
+  alt="API Call Setup"
+  style={{ borderRadius: '18px' }}
+/>
+<img
+  className="hidden dark:block"
+  src="/images/exemples/apiAction1.png"
+  alt="API Call Setup"
+  style={{ borderRadius: '18px' }}
+/>
+### Fields to Configure
+
+- **Description**: 
+  - **Purpose**: Write a brief description explaining what this API endpoint is supposed to do. This helps you keep track of the various API calls you might configure within the Pearl.
+
+- **When to Trigger the Action**: 
+  - **Trigger Condition**: Define the conditions under which this API call should be made. For example, "Call this API when the customer requests their account balance," or "Send this API request after the prospect agrees to sign up."
+
+- **URL**: 
+  - **Endpoint**: Enter the URL of the API endpoint you want to call. You can use variables (while clicking on `+` ) in the URL to customize the request for each conversation.
+
+- **Headers**: 
+  - **Header Information**: Add any necessary headers, such as `Content-Type`, `Authorization`, etc. This is where you would include any authorization tokens if required.
+
+- **Body (for POST and PUT requests)**: 
+  - **JSON Body**: Enter the request body in JSON format. You can insert variables into the JSON to ensure the data sent is tailored to the specific conversation.
+
+
+	<img
+	  className="block dark:hidden"
+	  src="/images/exemples/apiAction2.png"
+	  alt="API Call Setup"
+	  style={{ borderRadius: '18px' }}
+	/>
+	<img
+	  className="hidden dark:block"
+	  src="/images/exemples/apiAction2.png"
+	  alt="API Call Setup"
+	  style={{ borderRadius: '18px' }}
+	/>
+	The variables will be collected during the call. For more information about variables, visit our [Variables page](/pages/variables).
+
+### Example Use Cases
+
+Here are a few scenarios where you might use an API call within a Pearl:
+
+- **Fetch Customer Data**: You can set up an API call to retrieve customer details based on their account number. This information can then be used to personalize the conversation.
+
+- **Update CRM Records**: After confirming an order with a customer, Pearl can call an API to update the customer’s information in your CRM system.
+
+- **Post Data**: Pearl can send collected information, such as a lead's contact details or preferences, directly to your backend systems via an API.
+
+### Multiple API Calls
+
+You can add several API actions to a single Pearl, allowing for complex interactions where multiple pieces of information are fetched, posted, or updated in real-time, depending on the conversation flow.
+
+<CardGroup cols={1}>
+  <Card
+    title="Variables"
+    icon="puzzle-piece"
+    href="/pages/variables"
+  >
+    Learn how to use variables for your.
+  </Card>
+</CardGroup>

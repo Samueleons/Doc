@@ -6,7 +6,26 @@ description: "Learn how to effectively use variables in NLPearl.AI to enhance yo
 ## Understanding Variables in NLPearl.AI
 
 When creating a Pearl in NLPearl.AI, one of the most powerful tools at your disposal is the use of **variables**. These variables allow you to dynamically personalize conversations, making them more engaging and contextually relevant. Understanding how to use these variables effectively is key to getting the most out of your AI-driven interactions.
-
+			<img
+			  className="block dark:hidden"
+			  src="/images/exemples/variable.png"
+			  alt="API Call Setup"
+			  style={{ 
+				borderRadius: '18px', 
+				width: '200px', // Adjust the width as needed
+				height: 'auto'  // Maintains aspect ratio
+			  }}
+			/>
+			<img
+			  className="hidden dark:block"
+			  src="/images/exemples/variable.png"
+			  alt="API Call Setup"
+			   style={{ 
+				borderRadius: '18px', 
+				width: '200px', // Adjust the width as needed
+				height: 'auto'  // Maintains aspect ratio
+			  }}
+			/>
 ### Built-In and Custom Variables
 
 NLPearl.AI comes with a set of built-in variables such as `firstName`, `lastName`, `agentName`, `companyName`, etc. However, you also have the flexibility to create **custom variables** to suit your specific needs.
@@ -19,7 +38,26 @@ When creating a new variable, you need to provide the following details:
 - **Id**: This is the unique identifier for the variable, which you will use as a key in `callData` in [Make Call API Request](/api-reference/outbound/make-call). The Id is automatically generated when you fill in the Display Name but can be customized.
 - **Type**: The data type of the variable, such as `boolean`, `float`, `int`, or `string`.
 - **Description**: This is a critical field where you describe the purpose of the variable. It’s important to fill this out wisely, especially if the variable is meant to be collected during the call.
-
+		<img
+			  className="block dark:hidden"
+			  src="/images/exemples/variables2.png"
+			  alt="API Call Setup"
+			  style={{ 
+				borderRadius: '18px', 
+				width: '200px', // Adjust the width as needed
+				height: 'auto'  // Maintains aspect ratio
+			  }}
+			/>
+			<img
+			  className="hidden dark:block"
+			  src="/images/exemples/variables2.png"
+			  alt="API Call Setup"
+			   style={{ 
+				borderRadius: '18px', 
+				width: '200px', // Adjust the width as needed
+				height: 'auto'  // Maintains aspect ratio
+			  }}
+			/>
 ### Types of Variables
 
 There are two main types of variables:
@@ -86,7 +124,7 @@ Here ,Pearl will simply ask for confirmation of the price.
   }
 }
 ```
-Pearl will ask for the price during the call based on the variable's definition.
+Pearl will ask for the price during the call based on the variable's definition in the description field.
 
 ### Conclusion
 

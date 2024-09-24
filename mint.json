@@ -63,7 +63,10 @@
           "group": "Actions",
             "pages": [
               "pages/action",
-              "pages/transfer_call"
+              "pages/transfer_call",
+              "pages/email_action",
+              "pages/sms_action",
+              "pages/api_action"
             ]
       },
         "pages/calls"
@@ -83,7 +86,7 @@
         "pages/agents",
         "pages/phone_numbers",
         "pages/phone_number_reg",
-         "pages/twilio_integration",
+        "pages/twilio_integration",
         "pages/billing"
       ]
     },
@@ -93,7 +96,8 @@
         "api-reference/api_quickstart",
         "api-reference/authorization"
       ]
-    },{
+    },
+    {
     "group": "Account",
     "pages": [
       "api-reference/account/get-account"
