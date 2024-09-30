@@ -7,7 +7,7 @@
     },
     "servers": [
         {
-          "url": "http://NlpearlApi.com",
+          "url": "https://api.nlpearl.ai",
           "description": "Production Environement"
         }
       ],
