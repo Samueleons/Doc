@@ -5,6 +5,12 @@
         "description": "A sample API that demonstrates features in the OpenAPI specification",
         "version": "v1"
     },
+    "servers": [
+        {
+          "url": "http://NlpearlApi.com",
+          "description": "Production Environement"
+        }
+      ],
     "paths": {
         "/v1/Account": {
             "get": {
