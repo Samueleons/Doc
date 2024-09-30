@@ -63,7 +63,7 @@
                 }
             }
         },
-        "/v1/Call/{CallId}": {
+        "/v1/Call/{callId}": {
             "get": {
                 "tags": [
                     "Call"
