@@ -84,9 +84,15 @@
       "group": "Settings",
       "pages": [
         "pages/agents",
-        "pages/phone_numbers",
-        "pages/phone_number_reg",
-        "pages/twilio_integration",
+        {
+          "group": "Phone Numbers",
+          "pages": [
+            "pages/phone_overview",
+            "pages/nlpearl_phones",
+            "pages/twilio_integration",
+            "pages/custom_voip"
+          ]
+        },
         "pages/billing"
       ]
     },

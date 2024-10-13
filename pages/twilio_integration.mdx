@@ -1,41 +1,196 @@
 ---
 title: Twilio Integration
-description: 'Learn how to integrate your Twilio account with NLPearl.AI and manage your phone numbers directly from the platform.'
+description: 'Learn how to integrate your Twilio account with NLPearl.AI and use your Twilio phone numbers.'
 ---
 
-## Twilio Integration
+<img
+	className="block dark:hidden"
+  src="/logo/twilioicon.webp"
+  alt="Custom VoIP Icon"
+  style={{ width: '50px', float: 'right', marginTop: '-150px' }}
+/><img
+	className="hidden dark:block"
+  src="/logo/twilioicon.webp"
+  alt="Custom VoIP Icon"
+  style={{ width: '50px', float: 'right', marginTop: '-150px' }}
+/>
 
-If you have a Twilio account with phone numbers that support VoIP, you can integrate your Twilio account directly with our technology on the NLPearl.AI platform. This integration allows you to manage your Twilio phone numbers and use them within our platform seamlessly.
+Integrate your Twilio account with NLPearl.AI to use your existing Twilio phone numbers on our platform. 
+This integration allows you to leverage your Twilio numbers for inbound and outbound campaigns, 
+providing access to a wide range of phone numbers from various countries while ensuring compliance with local regulations.
 
-### Important Information
+### How to Integrate Your Twilio Account
 
-Before proceeding with the integration, please note the following:
+Follow these steps to integrate your Twilio account with NLPearl.AI:
 
-- **Phone Number Management**: Once you integrate your personal Twilio account with our platform, you will no longer be able to purchase phone numbers directly from NLPearl.AI. Any phone numbers previously purchased through our platform will be deleted. However, you can still purchase new phone numbers directly through your personal Twilio account.
-  
-- **Listing Your Phone Numbers**: After successfully connecting your Twilio account, you can list all the phone numbers associated with your Twilio account on the NLPearl.AI platform. You can then select the phone numbers you wish to work with. These selected phone numbers will become accessible on the platform for use in any inbound or outbound activities.
+1. **Access Settings**:
+   - Click on the **Settings** icon located at the bottom left corner of the NLPearl.AI dashboard.
 
-### How to Use Your Twilio Phone Numbers
+2. **Navigate to Phone Numbers Tab**:
+   - In the Settings menu, select the **Phone Numbers** tab.
 
-Once you've integrated your Twilio account and selected the phone numbers you want to use, you can easily manage them within NLPearl.AI:
+3. **Add Phone Number**:
+   - Click on the **Add Phone Number** button.
 
-1. **Adding Phone Numbers to Activities**: You can add any selected Twilio phone number to your inbound or outbound activities directly from the platform.
-  
-2. **Removing Phone Numbers**: If you no longer need a phone number, you can easily remove it from the platform by deleting it from the phone number list on the settings page.
-
-### VoIP and SMS Accessibility
-
-Ensure that the phone numbers you want to add have the necessary VoIP accessibility to use them with NLPearl.AI. If you plan to use SMS features as well, make sure that your Twilio phone numbers support SMS.
-
-Integrating your Twilio account with NLPearl.AI offers a flexible and powerful way to manage your communications, providing you with the tools to streamline your operations and enhance your customer interactions.
-
-### Twilio Configuration
-
-Once you've connected your Twilio account to NLPearl, you will need to disable HTTP Basic Authentication for media access to ensure proper usage of all our functionalities. To do so, go to the "Twilio Dashboard," click on "Voice" under the left menu, select "General," scroll down to "HTTP Basic Authentication for media access," and click on "Disable." Then click on "Save".
+4. **Connect to Twilio**:
 
 <img
-  className="block"
-  src="/images/exemples/twilio_config.jpg"
-  alt="Transfer Call Setup"
-  style={{ borderRadius: '18px' }}
+	className="block dark:hidden"
+	src="/images/exemples/TwilioConnect.png"
+	alt="API Call Setup"
+	style={{ 
+	borderRadius: '18px', 
+	width: '200px', // Adjust the width as needed
+	height: 'auto'  // Maintains aspect ratio
+	}}
 />
+<img
+	className="hidden dark:block"
+	src="/images/exemples/TwilioConnect.png"
+	alt="API Call Setup"
+	style={{ 
+	borderRadius: '18px', 
+	width: '200px', // Adjust the width as needed
+	height: 'auto'  // Maintains aspect ratio
+	}}
+/>
+   - Choose the **Connect to Twilio** option. You have two methods to connect your Twilio account:
+
+   #### Option 1: Using Account SID and Auth Token
+
+   - **Account SID**: Enter your Twilio Account SID.
+   - **Auth Token**: Enter your Twilio Auth Token.
+
+   #### Option 2: Using Account SID, API Key SID, and API Secret Key
+
+   - **Account SID**: Enter your Twilio Account SID.
+   - **API Key SID**: Enter your Twilio API Key SID.
+   - **API Secret Key**: Enter your Twilio API Secret Key.
+
+5. **Submit Credentials**:
+   - After entering the appropriate credentials, click on **Continue**.
+
+6. **Verify Credentials**:
+   - If your credentials are correct, you'll proceed to the next page displaying your Twilio phone numbers. If not, you'll be prompted to re-enter your credentials.
+
+### Importing Your Twilio Phone Numbers
+
+Once connected, you can import your Twilio phone numbers:
+<img
+	className="block dark:hidden"
+	src="/images/exemples/PhoneNumberListTwilio.png"
+	alt="API Call Setup"
+	style={{ 
+	borderRadius: '18px', 
+	width: '200px', // Adjust the width as needed
+	height: 'auto'  // Maintains aspect ratio
+	}}
+/>
+<img
+	className="hidden dark:block"
+	src="/images/exemples/PhoneNumberListTwilio.png"
+	alt="API Call Setup"
+	style={{ 
+	borderRadius: '18px', 
+	width: '200px', // Adjust the width as needed
+	height: 'auto'  // Maintains aspect ratio
+	}}
+/>
+1. **List of Phone Numbers**:
+   - A list of all phone numbers associated with your Twilio account will be displayed.
+
+2. **Select Phone Numbers to Import**:
+   - Click on the **Add** button next to each phone number you wish to import to NLPearl.AI.
+
+3. **Finish Importing**:
+   - After selecting your desired phone numbers, click on **Finish**. The selected phone numbers will now be available in your NLPearl.AI account. 
+	If you forgot to import any phone numbers or have purchased new ones in your Twilio account, you can return to this list at any time to import additional phone numbers.
+
+### Managing Multiple Twilio Accounts
+
+If you have multiple Twilio accounts with different phone numbers:
+
+- **Change Account**:
+  - In the Twilio integration page, click on **Change Account** to enter the credentials of another Twilio account.
+  - This action won't affect the phone numbers you've already imported from previous accounts.
+  - You can switch between accounts to import additional phone numbers as needed.
+
+### Deleting Phone Numbers
+
+To remove a phone number from NLPearl.AI:
+
+1. **Access Phone Numbers Tab**:
+   - Go to the **Phone Numbers** section in your Settings.
+
+2. **Delete Phone Number**:
+   - Click on the **Delete** button next to the phone number you wish to remove.
+
+3. **Confirm Deletion**:
+   - Confirm the deletion. The phone number will be removed from your NLPearl.AI account immediately.
+
+**Note**: Deleting a phone number from NLPearl.AI does not delete it from your Twilio account. Ensure that the phone number isn't used in any running activities before deleting it from the platform.
+
+### Disabling HTTP Basic Authentication for Media Access
+
+To ensure full functionality, disable HTTP Basic Authentication for media access in Twilio:
+
+1. **Log in to Twilio Dashboard**:
+   - Access your Twilio account and navigate to the dashboard.
+
+2. **Access Voice Settings**:
+   - Click on **Voice** in the left-hand menu.
+
+3. **Select General Settings**:
+   - Under the **Voice** section, select **General**.
+
+4. **Disable HTTP Basic Authentication**:
+   - Scroll down to the **HTTP Basic Authentication for media access** section.
+   - Click on **Disable** to turn off this setting.
+
+	<img
+	  className="block"
+	  src="/images/exemples/twilio_config.jpg"
+	  alt="Transfer Call Setup"
+	  style={{ borderRadius: '18px' }}
+	/>
+
+
+5. **Save Changes**:
+   - Click on **Save** to apply the changes.
+
+
+
+By disabling this setting, you ensure that NLPearl.AI can access and use media resources without authentication issues.
+
+### Advantages of Twilio Integration
+
+- **Access to Global Phone Numbers**:
+  - Use phone numbers from countries not directly supported by NLPearl.AI by purchasing them through Twilio.
+
+- **Compliance with Country Regulations**:
+  - Twilio handles country-specific regulations, allowing you to purchase numbers that comply with local laws.
+
+- **Leverage Existing Numbers**:
+  - Utilize the phone numbers you already own in Twilio without needing to acquire new ones.
+
+### Important Considerations
+
+- **Phone Number Management**:
+  - Purchase and manage phone numbers through your Twilio account. NLPearl.AI allows you to use these numbers within our platform.
+
+- **Removing Phone Numbers**:
+  - Deleting a phone number from NLPearl.AI doesn't affect its status in your Twilio account.
+
+- **Running Activities**:
+  - Before deleting a phone number from NLPearl.AI, ensure it's not assigned to any active campaigns or activities to prevent disruptions.
+
+### Using Twilio Integration for Wider Availability
+
+Integrating with Twilio allows you to access a broader range of phone numbers, especially from countries with specific regulations. 
+By directly contacting Twilio to purchase these numbers, you can ensure compliance and expand your reach.
+
+---
+
+If you need assistance with the integration process or have questions about using Twilio phone numbers with NLPearl.AI, please refer to our support resources or contact our support team.
+
+
