@@ -17,12 +17,38 @@ Choose the type of use case for your Pearl:
 1. **Personal Secretary**: The secretary provides information, schedules appointments, and performs other tasks in real-time or post-call, just like a real secretary, but without making coffee. Unlike other use cases, she has no script or flow, she is a genuine secretary.
 2. **Sales**: The sales agent can act in real-time or post-call with a predefined behavior focused on selling a product persistently. Give them a script, and they'll handle the rest.
 3. **Support**: Similar to the salesperson, the support agent is trained to provide assistance. Their behavior is more supportive and helpful.
-4. **Custom**: Also known as advanced mode, this option lets you create a decision tree and develop complex flows. You can add any action or API request at any point during the conversation. The agent will know what to do and when to do it, from start to finish, including what to say and under which conditions.
+4. **Surveys**: Engage your audience by sharing surveys and polls via outbound or inbound to gather feedback, opinions, or votes. Enable actions like SMS, email, call transfers, and more. This Pearl model is straightforward, less flexible, and closely follows its script.
+5. **Custom**: Also known as advanced mode, this option lets you create a decision tree and develop complex flows. You can add any action or API request at any point during the conversation. The agent will know what to do and when to do it, from start to finish, including what to say and under which conditions.
 
 #### Step 2: Agent Customization
 
-1. **Name of the Agent**: Define the name of the agent, which will be used during phone conversations.
-2. **Voice & Language**: Select a voice from a list of available options. Each voice supports one language and one accent, indicated by tags (e.g., "us-AU" for English with an Australian accent). The conversation will be conducted in the language of the chosen voice.
+1. **Agent Names, Languages & Voices**:
+	<img
+		className="block dark:hidden"
+		src="/images/exemples/nameLang.png"
+		alt="API Call Setup"
+		style={{ 
+		borderRadius: '18px', 
+		}}
+	/>
+	<img
+		className="hidden dark:block"
+		src="/images/exemples/nameLang.png"
+		alt="API Call Setup"
+		style={{ 
+		borderRadius: '18px', 
+		}}
+	/>
+   - **Add Multilingual Agents**: If you want your Pearl to speak more than one language, click on the **"+"** button to add additional agent configurations.
+	If during the conversation the caller requests to switch to another language, and you've added that language to your agent configurations, Pearl will smoothly inform the caller that they will be transferred to a representative who speaks that language. 
+	The conversation will then continue with the agent configured for the requested language.
+	Assign a name to each agent configuration. This name will be used during phone conversations in the corresponding language.
+	Explore  [Voice and Language](/pages/languages) to view all the language options available.
+
+
+
+   - **Default Agent Configuration**: The first agent configuration you add is set as the default. This agent will initiate the conversation when a call begins.
+
 3. **Personality**: Set the personality traits of the agent to match the desired interaction style.
 4. **Timezone**: Define the timezone of the agent. This influences time-related actions, such as booking meetings.
 
@@ -35,8 +61,8 @@ Choose the type of use case for your Pearl:
 #### Step 4: Flow Configuration
 
 1. **Opening Sentence**: Define the first sentence Pearl will say when answering the phone. You can include variables like "company name" or "agent name." Avoid using lead-specific variables for inbound calls.
-2. **Flow Script**: For use cases other than Personal Secretary, provide the script that Pearl will follow during conversations, similar to a script given to a human salesperson.
-3. **Call Actions**: Specify actions that Pearl can perform during the call, such as booking meetings, transferring calls or send Email and SMS.
+2. **Flow Script**: For use cases other than Personal Secretary, provide the script that Pearl will follow during conversations, similar to a script given to a human salesperson. It's very important to understand how to use [Variables](/pages/variables) to enhance the conversation experience and give Pearl better capabilities to handle the interaction.
+3. **Call Actions**: Specify actions that Pearl can perform during the call, such as booking meetings, transferring calls, or sending emails and SMS messages.
 
 For more details on actions, refer to the [Actions](/pages/action) page.
 
@@ -47,6 +73,43 @@ For more details on actions, refer to the [Actions](/pages/action) page.
 2. **Choose Your Pearl**: Select a logo for your Pearl from a list of available options.
 3. **Define the Success of Your Pearl**: Specify what constitutes a successful call for your Pearl, such as booking a meeting, obtaining client interest, or qualifying a lead.\n\n
 This defined success will be reflected in the status of your leads list when you launch a campaign,  allowing you to effectively sort and manage your leads.
+4. **Indicator Tags**:
+	<img
+	className="block dark:hidden"
+	src="/images/exemples/indicatorTags.png"
+	alt="API Call Setup"
+	style={{ 
+	borderRadius: '18px', 
+	}}
+	/>
+	<img
+		className="hidden dark:block"
+		src="/images/exemples/indicatorTags.png"
+		alt="API Call Setup"
+		style={{ 
+		borderRadius: '18px', 
+		}}
+	/>
+   - **Purpose of Indicator Tags**: Indicator tags allow you to label your conversations based on specific criteria or events that occur during the interaction. This helps in categorizing and analyzing conversations later.
+
+   - **How to Add Indicator Tags**:
+     - **Add a Tag**: Click on the option to add a new indicator tag.
+     - **Color**: Choose a color for the tag to make it easily identifiable.
+     - **Name**: Provide a name for the tag.
+     - **Description (When to Assign)**: Describe the condition or event when the tag should be assigned during the conversation.
+
+   - **Example Use Case**:
+     - If you're conducting a poll to find out what people prefer to drink in the morning:
+       - **Tag "Coffee"**:
+         - **Color**: Brown
+         - **Name**: Coffee
+         - **When to Assign**: "If the prospect prefers to drink coffee in the morning."
+       - **Tag "Tea"**:
+         - **Color**: Green
+         - **Name**: Tea
+         - **When to Assign**: "If the prospect prefers to drink tea in the morning."
+     - During the conversation, if the prospect expresses a preference for coffee or tea, the corresponding tag will be assigned, allowing you to easily filter and analyze these interactions later.
+
 
 <CardGroup cols={2}>
   <Card

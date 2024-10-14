@@ -5,39 +5,93 @@ description: 'Explore the diverse range of languages and accents supported by NL
 
 import { CardGroup, Card } from '/snippets';
 
-At NLPearl.AI, we pride ourselves on supporting a wide variety of languages and accents to cater to a global audience. Our list of supported languages and accents is constantly growing to meet the diverse needs of our users.
+## Voices and Languages in NLPearl.AI
+
+At NLPearl.AI, we offer a wide variety of languages and accents to cater to a global audience. You can configure your Pearl to handle conversations in multiple languages, providing a seamless and personalized experience for your users.
+
+### Configuring Agent Names, Languages & Voices
+
+When creating or editing your Pearl, you can set up multiple agents with different languages and voices. This flexibility allows your Pearl to engage in conversations in more than one language and switch smoothly between them as needed.
+
+#### How to Add Multiple Languages and Voices
+
+1. **Agent Names, Languages & Voices Section**:
+   - This section combines the configuration of your agent's name, language, and voice.
+
+2. **Add a New Language**:
+   - Click on the **"+"** button to add a new agent configuration.
+   - For each agent configuration, you can set:
+     - **Agent Name**: The name that the agent will use during conversations in that language.
+     - **Language**: Select the desired language from the supported list.
+     - **Voice**: Choose a voice corresponding to the selected language. Voices come with labels indicating the accent (e.g., "en-US" for American English).
+
+3. **Default Language**:
+   - The first agent configuration you add is set as the **default**.
+   - This is the language your Pearl will use to start the conversation.
+
+4. **Accents**:
+   - Use the accent labels to select the voice that best suits your target audience.
+
+#### Switching Languages During a Call
+
+- If, during the conversation, the caller requests to switch to another language, and you've added that language to your agent configurations, Pearl will smoothly handle the transition.
+- The agent will inform the caller that they will be transferred to a representative who speaks the requested language.
+- The conversation will then continue with the agent configured for that language.
 
 ### Supported Languages and Accents
 
-Currently, you can select from the following languages and accents on the NLPearl.AI platform:
+Currently, NLPearl.AI supports the following languages and accents:
 
-- **English**: US, Australian, British accents
-- **Spanish**: Mexican, Colombian accents
-- **French**: French accent
-- **Italian**
-- **German**
-- **Hindi**
-- **Korean**
+- **English**:
+  - Accents:
+    - American (en-US)
+    - Australian (en-AU)
+    - British (en-GB)
+    - South African (en-ZA)
+- **Spanish**:
+  - Accents:
+    - Mexican (es-MX)
+    - Colombian (es-CO)
+    - Argentine (es-AR)
+- **French**:
+  - Accent: French (fr-FR)
+- **Italian**:
+  - Accent: Italian (it-IT)
+- **German**:
+  - Accent: German (de-DE)
+- **Hindi**:
+  - Accent: Hindi (hi-IN)
+- **Korean**:
+  - Accent: Korean (ko-KR)
 
-### Determining the Language of the Call
+### Important Notes
 
-The language of your call is determined by the voice you select when creating a Pearl. It’s important to note that if you choose an English voice, your entire conversational flow must be in English to maintain consistency and effectiveness.
+- **Language Consistency**:
+  - Ensure that your conversational flow and scripts are consistent with the languages you've configured.
+  - For example, if you have English and Spanish agents, provide scripts in both languages.
 
-### Future Language and Accent Support
+- **Default Language**:
+  - The default language is crucial as it determines how the conversation begins.
+  - Make sure the default language aligns with the expectations of your target audience.
 
-We are actively working to expand our range of supported languages and accents. Stay tuned for updates as we continue to grow our offerings. 
+- **Accents and Regional Variations**:
+  - Choose accents that best match your audience to enhance the user experience.
 
-### Custom Language and Accent Requests
+### Expanding Language Support
+
+We are continuously working to expand our range of supported languages and accents to meet the diverse needs of our users. Stay tuned for updates as we grow our offerings.
+
+### Feedback and Requests
 
 If you have specific language or accent requirements that are not currently supported, please reach out to our support team. We are committed to accommodating your needs and will consider your requests as we expand our capabilities.
 
 <CardGroup cols={2}>
   <Card
-    title="Create Pearl"
+    title="Create Your Pearl"
     icon="wand-magic"
     href="/pages/create_pearl"
   >
-    Learn how to create a Pearl and select the appropriate voice and language.
+    Learn how to create a Pearl and configure multiple languages and voices.
   </Card>
   <Card
     title="Contact Support"
@@ -47,8 +101,3 @@ If you have specific language or accent requirements that are not currently supp
     Contact our support team to request additional languages or accents.
   </Card>
 </CardGroup>
-
-## Conclusion
-
-NLPearl.AI offers a diverse range of voices and languages to ensure your AI-driven interactions resonate with your audience. As we continue to expand our offerings, we welcome your feedback and requests to better serve your needs.
-
