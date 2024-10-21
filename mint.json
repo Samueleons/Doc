@@ -61,14 +61,14 @@
         "pages/languages",
         {
           "group": "Actions",
-            "pages": [
-              "pages/action",
-              "pages/transfer_call",
-              "pages/email_action",
-              "pages/sms_action",
-              "pages/api_action"
-            ]
-      },
+          "pages": [
+            "pages/action",
+            "pages/transfer_call",
+            "pages/email_action",
+            "pages/sms_action",
+            "pages/api_action"
+          ]
+        },
         "pages/calls"
       ]
     },
@@ -103,7 +103,7 @@
         "api-reference/authorization"
       ]
     },
-    {
+        {
     "group": "Account",
     "pages": [
       "api-reference/account/get-account"
@@ -140,7 +140,6 @@
       "api-reference/outbound/search-call-requests"
     ]
   }
-
   ],
   "footerSocials": {
     "x": "https://x.com/NLPearlai",

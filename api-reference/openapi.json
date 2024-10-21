@@ -7,10 +7,10 @@
     },
     "servers": [
         {
-          "url": "https://api.nlpearl.ai",
-          "description": "Production Environement"
+            "url": "https://api.nlpearl.ai",
+            "description": "Production Environement"
         }
-      ],
+    ],
     "paths": {
         "/v1/Account": {
             "get": {
@@ -185,7 +185,7 @@
                 }
             }
         },
-        "/v1/Inbound/{InboundId}": {
+        "/v1/Inbound/{inboundId}": {
             "get": {
                 "tags": [
                     "Inbound"
@@ -194,7 +194,7 @@
                 "description": "Retrieves a specific inbound by its ID",
                 "parameters": [
                     {
-                        "name": "InboundId",
+                        "name": "inboundId",
                         "in": "path",
                         "description": "The unique identifier of the inbound.",
                         "required": true,
@@ -352,17 +352,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TableDateSearch"
+                                "$ref": "#/components/schemas/CallsTableDateSearch"
                             }
                         },
                         "text/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TableDateSearch"
+                                "$ref": "#/components/schemas/CallsTableDateSearch"
                             }
                         },
                         "application/*+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TableDateSearch"
+                                "$ref": "#/components/schemas/CallsTableDateSearch"
                             }
                         }
                     }
@@ -638,17 +638,17 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TableDateSearch"
+                                "$ref": "#/components/schemas/CallsTableDateSearch"
                             }
                         },
                         "text/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TableDateSearch"
+                                "$ref": "#/components/schemas/CallsTableDateSearch"
                             }
                         },
                         "application/*+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/TableDateSearch"
+                                "$ref": "#/components/schemas/CallsTableDateSearch"
                             }
                         }
                     }
@@ -741,17 +741,17 @@
                         "content": {
                             "text/plain": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadToAddResponse"
+                                    "$ref": "#/components/schemas/LeadToAddResponseApi"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadToAddResponse"
+                                    "$ref": "#/components/schemas/LeadToAddResponseApi"
                                 }
                             },
                             "text/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadToAddResponse"
+                                    "$ref": "#/components/schemas/LeadToAddResponseApi"
                                 }
                             }
                         }
@@ -823,17 +823,17 @@
                         "content": {
                             "text/plain": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadListViewTableSearchResult"
+                                    "$ref": "#/components/schemas/LeadListApiViewTableSearchResult"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadListViewTableSearchResult"
+                                    "$ref": "#/components/schemas/LeadListApiViewTableSearchResult"
                                 }
                             },
                             "text/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadListViewTableSearchResult"
+                                    "$ref": "#/components/schemas/LeadListApiViewTableSearchResult"
                                 }
                             }
                         }
@@ -894,17 +894,17 @@
                         "content": {
                             "text/plain": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadView"
+                                    "$ref": "#/components/schemas/LeadApiView"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadView"
+                                    "$ref": "#/components/schemas/LeadApiView"
                                 }
                             },
                             "text/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadView"
+                                    "$ref": "#/components/schemas/LeadApiView"
                                 }
                             }
                         }
@@ -965,17 +965,17 @@
                         "content": {
                             "text/plain": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadView"
+                                    "$ref": "#/components/schemas/LeadApiView"
                                 }
                             },
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadView"
+                                    "$ref": "#/components/schemas/LeadApiView"
                                 }
                             },
                             "text/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/LeadView"
+                                    "$ref": "#/components/schemas/LeadApiView"
                                 }
                             }
                         }
@@ -1240,6 +1240,19 @@
                     },
                     "content": {
                         "type": "string",
+                        "description": "The content of the message",
+                        "nullable": true
+                    },
+                    "startTime": {
+                        "type": "number",
+                        "description": "The moment the message starts",
+                        "format": "float",
+                        "nullable": true
+                    },
+                    "endTime": {
+                        "type": "number",
+                        "description": "The moment the message ends",
+                        "format": "float",
                         "nullable": true
                     }
                 },
@@ -1371,6 +1384,36 @@
                         },
                         "description": "A List containing informations collected during the call.",
                         "nullable": true
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The tags or labels triggered during the conversation",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CallCollectedDataApiView": {
+                "type": "object",
+                "properties": {
+                    "transcript": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AgentChatMessageApiView"
+                        },
+                        "description": "The transcript of the conversation.",
+                        "nullable": true
+                    },
+                    "collectedInfos": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CollectedInfoView"
+                        },
+                        "description": "The information collected during the conversations.",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -1409,6 +1452,14 @@
                         "type": "integer",
                         "description": "The duration of the call in seconds.",
                         "format": "int32"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The tags or labels triggered during the conversation",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false
@@ -1427,6 +1478,49 @@
                             "$ref": "#/components/schemas/CallListApiView"
                         },
                         "description": "The list of results for the current page, based on the search criteria.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CallsTableDateSearch": {
+                "type": "object",
+                "properties": {
+                    "skip": {
+                        "type": "integer",
+                        "description": "Number of entries to skip for pagination.",
+                        "format": "int32"
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Limit on the number of entries to return.",
+                        "format": "int32"
+                    },
+                    "sortProp": {
+                        "type": "string",
+                        "description": "Property name to sort by.",
+                        "nullable": true
+                    },
+                    "isAscending": {
+                        "type": "boolean",
+                        "description": "Whether the sort order is ascending."
+                    },
+                    "fromDate": {
+                        "type": "string",
+                        "description": "The start date for filtering the search results.",
+                        "format": "date-time"
+                    },
+                    "toDate": {
+                        "type": "string",
+                        "description": "The end date for filtering the search results.",
+                        "format": "date-time"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of tags to filter by.",
                         "nullable": true
                     }
                 },
@@ -1564,17 +1658,17 @@
                 },
                 "additionalProperties": false
             },
-            "LeadListView": {
+            "LeadApiView": {
                 "type": "object",
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "The unique ID of the lead.",
+                        "description": "The unique identifier of the lead, represented as an ObjectId.",
                         "nullable": true
                     },
                     "externalId": {
                         "type": "string",
-                        "description": "The external ID of the lead, typically from a CRM request or another external source.",
+                        "description": "The identifier for the lead from an external system, such as a CRM.",
                         "nullable": true
                     },
                     "firstName": {
@@ -1599,7 +1693,7 @@
                     },
                     "timeZone": {
                         "type": "string",
-                        "description": "The time zone of the lead.",
+                        "description": "The time zone of the lead, represented as a float (e.g., -5.0 for EST).",
                         "nullable": true
                     },
                     "status": {
@@ -1609,11 +1703,123 @@
                         "type": "string",
                         "description": "The date and time when the lead was created.",
                         "format": "date-time"
+                    },
+                    "callsId": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The list of the ID's of all the calls this lead has received.",
+                        "nullable": true
+                    },
+                    "lastCall": {
+                        "$ref": "#/components/schemas/LeadLastCallApiView"
                     }
                 },
                 "additionalProperties": false
             },
-            "LeadListViewTableSearchResult": {
+            "LeadLastCallApiView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique identifier of the call.",
+                        "nullable": true
+                    },
+                    "startTime": {
+                        "type": "string",
+                        "description": "The date and time when the call processing started.",
+                        "format": "date-time"
+                    },
+                    "pearlId": {
+                        "type": "string",
+                        "description": "The ID of the Pearl Used in This Call.",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eCallStatusView"
+                    },
+                    "from": {
+                        "type": "string",
+                        "description": "The phone number from which the call was made.",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name associated with the call, if available.",
+                        "nullable": true
+                    },
+                    "collectedData": {
+                        "$ref": "#/components/schemas/CallCollectedDataApiView"
+                    },
+                    "summary": {
+                        "type": "string",
+                        "description": "A summary of the conversation.",
+                        "nullable": true
+                    },
+                    "duration": {
+                        "type": "integer",
+                        "description": "The duration of the call in seconds.",
+                        "format": "int32"
+                    },
+                    "recording": {
+                        "type": "string",
+                        "description": "The URL of the recording of the call, if available.",
+                        "nullable": true
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The tags or labels triggered during the conversation",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LeadListApiView": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "externalId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "timeZone": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "$ref": "#/components/schemas/eLeadStatusView"
+                    },
+                    "created": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LeadListApiViewTableSearchResult": {
                 "type": "object",
                 "properties": {
                     "count": {
@@ -1624,7 +1830,7 @@
                     "results": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/LeadListView"
+                            "$ref": "#/components/schemas/LeadListApiView"
                         },
                         "description": "The list of results for the current page, based on the search criteria.",
                         "nullable": true
@@ -1692,70 +1898,11 @@
                 },
                 "additionalProperties": false
             },
-            "LeadToAddResponse": {
+            "LeadToAddResponseApi": {
                 "type": "object",
                 "properties": {
                     "leadId": {
                         "type": "string",
-                        "description": "The unique identifier of the lead that was added.",
-                        "nullable": true
-                    }
-                },
-                "additionalProperties": false,
-                "description": "Represents the response returned after adding a lead."
-            },
-            "LeadView": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "description": "The unique identifier of the lead, represented as an ObjectId.",
-                        "nullable": true
-                    },
-                    "externalId": {
-                        "type": "string",
-                        "description": "The identifier for the lead from an external system, such as a CRM.",
-                        "nullable": true
-                    },
-                    "firstName": {
-                        "type": "string",
-                        "description": "The first name of the lead.",
-                        "nullable": true
-                    },
-                    "lastName": {
-                        "type": "string",
-                        "description": "The last name of the lead.",
-                        "nullable": true
-                    },
-                    "email": {
-                        "type": "string",
-                        "description": "The email address of the lead.",
-                        "nullable": true
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "The phone number of the lead.",
-                        "nullable": true
-                    },
-                    "timeZone": {
-                        "type": "string",
-                        "description": "The time zone of the lead, represented as a float (e.g., -5.0 for EST).",
-                        "nullable": true
-                    },
-                    "status": {
-                        "$ref": "#/components/schemas/eLeadStatusView"
-                    },
-                    "created": {
-                        "type": "string",
-                        "description": "The date and time when the lead was created.",
-                        "format": "date-time"
-                    },
-                    "callsId": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "The list of the ID's of all the calls this lead has received.",
                         "nullable": true
                     }
                 },
