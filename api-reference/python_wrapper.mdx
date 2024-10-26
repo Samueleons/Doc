@@ -1,0 +1,78 @@
+---
+title: Python Wrapper
+description: 'Learn how to use the NLPearl Python wrapper to interact with the NLPearl API effortlessly.'
+---
+
+# NLPearl Python Wrapper
+
+The NLPearl Python wrapper provides a simple and intuitive way to interact with the NLPearl API directly from your Python applications. This package simplifies the integration of NLPearl's conversational AI capabilities into your projects.
+
+## Installation
+
+Install the package via pip:
+
+```bash
+pip install nlpearl
+```
+
+You can find the package on PyPI: [NLPearl Python Wrapper on PyPI](https://pypi.org/project/nlpearl/)
+
+## Getting Started
+
+Before using the `nlpearl` package, you need to obtain an API key from NLPearl. You can request one by contacting our support team.
+
+### Setting Your API Key
+
+Set your API key before making any API calls:
+
+```python
+import nlpearl as pearl
+
+# Set your API key
+pearl.api_key = "your_api_key_here"
+```
+
+## Usage Examples
+
+### Retrieve Account Information
+
+```python
+import nlpearl as pearl
+
+# Set your API key
+pearl.api_key = "your_api_key_here"
+
+# Retrieve account information
+account_info = pearl.Account.get_account()
+print(account_info)
+```
+
+### Make an Outbound Call
+
+```python
+import nlpearl as pearl
+
+# Set your API key
+pearl.api_key = "your_api_key_here"
+
+# Define the outbound ID and the phone number to call
+outbound_id = "your_outbound_id"
+phone_number = "+1234567890"
+
+# Make an outbound call
+call_response = pearl.Outbound.make_call(
+    outbound_id,
+    to=phone_number,
+    call_data={"firstName": "John", "lastName": "Doe"}
+)
+print(call_response)
+```
+
+These examples demonstrate how easy it is to integrate NLPearl's services into your Python applications using the `nlpearl` package.
+
+## Additional Resources
+
+- [NLPearl Python Wrapper on PyPI](https://pypi.org/project/nlpearl/)
+- For detailed documentation on all available endpoints and functionalities, please refer to the endpoints documentation below.
+
+---
