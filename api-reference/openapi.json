@@ -1484,6 +1484,10 @@
                 "additionalProperties": false
             },
             "CallsTableDateSearch": {
+                "required": [
+                    "fromDate",
+                    "toDate"
+                ],
                 "type": "object",
                 "properties": {
                     "skip": {
@@ -1507,12 +1511,10 @@
                     },
                     "fromDate": {
                         "type": "string",
-                        "description": "The start date for filtering the search results.",
                         "format": "date-time"
                     },
                     "toDate": {
                         "type": "string",
-                        "description": "The end date for filtering the search results.",
                         "format": "date-time"
                     },
                     "tags": {
@@ -1783,30 +1785,37 @@
                 "properties": {
                     "id": {
                         "type": "string",
+                        "description": "The unique ID of the lead.",
                         "nullable": true
                     },
                     "externalId": {
                         "type": "string",
+                        "description": "The external ID of the lead, typically from a CRM request or another external source.",
                         "nullable": true
                     },
                     "firstName": {
                         "type": "string",
+                        "description": "The first name of the lead.",
                         "nullable": true
                     },
                     "lastName": {
                         "type": "string",
+                        "description": "The last name of the lead.",
                         "nullable": true
                     },
                     "email": {
                         "type": "string",
+                        "description": "The email address of the lead.",
                         "nullable": true
                     },
                     "phoneNumber": {
                         "type": "string",
+                        "description": "The phone number of the lead.",
                         "nullable": true
                     },
                     "timeZone": {
                         "type": "string",
+                        "description": "The time zone of the lead.",
                         "nullable": true
                     },
                     "status": {
@@ -1814,6 +1823,7 @@
                     },
                     "created": {
                         "type": "string",
+                        "description": "The date and time when the lead was created.",
                         "format": "date-time"
                     }
                 },
@@ -1868,31 +1878,39 @@
                 "description": "Extends TableSearch to include specific search criteria for leads."
             },
             "LeadToAddApi": {
+                "required": [
+                    "firstName",
+                    "lastName",
+                    "phoneNumber"
+                ],
                 "type": "object",
                 "properties": {
                     "firstName": {
+                        "minLength": 1,
                         "type": "string",
-                        "description": "The first name of the lead.",
-                        "nullable": true
+                        "description": "The first name of the lead."
                     },
                     "lastName": {
+                        "minLength": 1,
                         "type": "string",
-                        "description": "The last name of the lead.",
-                        "nullable": true
-                    },
-                    "email": {
-                        "type": "string",
-                        "description": "The email address of the lead.",
-                        "nullable": true
+                        "description": "The last name of the lead."
                     },
                     "phoneNumber": {
+                        "minLength": 1,
                         "type": "string",
-                        "description": "The phone number of the lead.",
-                        "nullable": true
+                        "description": "The phone number of the lead."
                     },
                     "externalId": {
                         "type": "string",
                         "description": "An optional external identifier for the lead.",
+                        "nullable": true
+                    },
+                    "callData": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "description": "A dictionary containing additional information about the call.\r\nIt is used as variables that you can use in \"Opening Sentence\" or \"Flow Script\" when you create a Pearl on the platform.\r\nThe keys represent the field names, and the values contain the corresponding data.\r\nThis information can be used to personalize the conversation or manage lead-specific details.\r\n\n\nThis parameter is optional.\r\n\n\nsee [Variables](/pages/variables) for more information.\r\n\n\nHere is an exemple of the json to send:\n\n\r\n`{ \"email\" : \"joe@gmail.com\", \"address\": \"3 Abbey Road UK\" , \"carLicense\" : \"90-929-82\" }`",
                         "nullable": true
                     }
                 },
@@ -2024,12 +2042,14 @@
                 "additionalProperties": false
             },
             "OutboundMakeCallRequest": {
+                "required": [
+                    "to"
+                ],
                 "type": "object",
                 "properties": {
                     "to": {
-                        "type": "string",
-                        "description": "The phone number to which the call will be made.",
-                        "nullable": true
+                        "minLength": 1,
+                        "type": "string"
                     },
                     "callData": {
                         "type": "object",
@@ -2071,17 +2091,23 @@
                 "description": "Defines the result structure for an outbound call operation."
             },
             "SetActiveRequest": {
+                "required": [
+                    "isActive"
+                ],
                 "type": "object",
                 "properties": {
                     "isActive": {
-                        "type": "boolean",
-                        "description": "A boolean value that specifies the new active status of the entity.\r\nTrue activates the entity, while false deactivates it."
+                        "type": "boolean"
                     }
                 },
                 "additionalProperties": false,
                 "description": "Defines the request structure for setting the active status of an entity."
             },
             "TableDateSearch": {
+                "required": [
+                    "fromDate",
+                    "toDate"
+                ],
                 "type": "object",
                 "properties": {
                     "skip": {
@@ -2105,12 +2131,10 @@
                     },
                     "fromDate": {
                         "type": "string",
-                        "description": "The start date for filtering the search results.",
                         "format": "date-time"
                     },
                     "toDate": {
                         "type": "string",
-                        "description": "The end date for filtering the search results.",
                         "format": "date-time"
                     }
                 },
@@ -2181,7 +2205,7 @@
             },
             "eConversationStatusView": {
                 "type": "integer",
-                "description": "The outcome of the conversation during the call.\n\nTo determine the definition of 'Success' or 'Not Successful,' please refer to the [Create a Pearl](/pages/create_pearl#pearl-name) page at step 4.\n\n`10 - NeedRetry`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`200 - Error`\n\n",
+                "description": "The outcome of the conversation during the call.\n\nTo determine the definition of 'Success' or 'Not Successful,' please refer to the [Create a Pearl](/pages/create_pearl#pearl-name) page at step 4.\n\n`10 - NeedRetry`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
                 "format": "int32"
             },
             "eLeadStatusInputView": {
@@ -2191,7 +2215,7 @@
             },
             "eLeadStatusView": {
                 "type": "integer",
-                "description": "The Status of the lead is the status of the last conversation.\n\nTo determine the definition of 'Success' or 'Not Successful,' please refer to the [Create a Pearl](/pages/create_pearl#pearl-name) page at step 4.\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
+                "description": "The Status of the lead is the status of the last conversation.\n\nTo determine the definition of 'Success' or 'Not Successful,' please refer to the [Create a Pearl](/pages/create_pearl#pearl-name) page at step 4.\n\n`1 - New`\n\n`10 - NeedRetry`\n\n`30 - WrongCountryCode`\n\n`40 - OnCall`\n\n`100 - Success`\n\n`110 - NotSuccessfull`\n\n`130 - Complete`\n\n`500 - Error`\n\n",
                 "format": "int32"
             }
         },
